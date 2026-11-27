@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import { BRAND_NAME, BRAND_TAGLINE, NAV, LOGO, BASE } from '../site';
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${BRAND_NAME}` : `${BRAND_NAME} — Web Design, Hosting & Cloud, Canada`;
+const desc = description || `${BRAND_NAME} is a team of 10–20 designers in Canada who design, build and run websites, stores and apps — fast, mobile-first, and without lock-in.`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{pageTitle}</title>
+<meta name="description" content={desc} />
+<link rel="icon" href={`${BASE}/images/logo-iv8sphere.webp`} />
+</head>
+<body>
+<div class="announce">Now booking December projects — 2 slots left. <a href={`${BASE}/contact`}>Start a Project →</a></div>
+<header class="site"><div class="container nav">
+<a class="brand" href={BASE + '/'} aria-label={`${BRAND_NAME} home`}><img class="logo" src={LOGO} alt={`${BRAND_NAME} logo`} width="42" height="42" /><span>{BRAND_NAME}</span></a>
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav nav').classList.toggle('open')">☰</button>
+<nav>{NAV.map(i => <a href={BASE + i.href}>{i.label}</a>)}</nav>
+<select class="lang" aria-label="Language"><option>🌐 English</option><option>Français</option><option>Español</option><option>Deutsch</option></select>
+<a class="btn sm" href={`${BASE}/contact`}>Start a Project</a>
+</div></header>
+<main>
+<slot />
+</main>
+<section style="padding-top:0"><div class="container"><div class="final">
+<h2>Tell us about your project.</h2>
+<p>One short form. A real reply within 1 business day — and a free first step: tell us your goal, and we'll show you what fits before you commit to anything.</p>
+<div class="steps-mini"><span>1 · Tell us your goal</span><span>2 · We show you what fits</span><span>3 · You decide — no pressure</span></div>
+<a class="btn light" href={`${BASE}/contact`}>Start a Project →</a>
+</div></div></section>
+<footer><div class="container foot">
+<div><a class="brand" href={BASE + '/'}><span>{BRAND_NAME}</span></a><p style="color:#AEBFD6;margin-top:12px">{BRAND_TAGLINE}<br/>Based in Canada. Working worldwide.<br/>Web design, hosting &amp; cloud — one team, start to finish.</p></div>
+<div><h4>Services</h4><a href={`${BASE}/services/website-services`}>Website Services</a><a href={`${BASE}/services/professional-services`}>Professional Services</a><a href={`${BASE}/services/managed-hosting`}>Managed Hosting</a><a href={`${BASE}/services`}>All services</a></div>
+<div><h4>Company</h4><a href={`${BASE}/about`}>About</a><a href={`${BASE}/work`}>Work</a><a href={`${BASE}/process`}>Process</a><a href={`${BASE}/whitepapers`}>Whitepapers</a><a href={`${BASE}/contact`}>Contact</a></div>
+<div><h4>What we do, in one line</h4><p style="color:#AEBFD6">We design, build and run websites, stores and apps — so your business gets more enquiries and sales, without you touching any tech.</p><p style="margin-top:16px">© 2026 {BRAND_NAME}. Canada.</p></div>
+</div></footer>
+</body>
+</html>
