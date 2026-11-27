@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="iv8Sphere logo">
+  <g fill="none" stroke="#00C2FF" stroke-width="7" stroke-linecap="round">
+    <circle cx="60" cy="43" r="27"/>
+    <circle cx="60" cy="79" r="27"/>
+  </g>
+  <ellipse cx="60" cy="61" rx="55" ry="20" fill="none" stroke="#7C5CFF" stroke-width="3" transform="rotate(-18 60 61)"/>
+  <circle cx="108" cy="45" r="5" fill="#7C5CFF"/>
+</svg>
