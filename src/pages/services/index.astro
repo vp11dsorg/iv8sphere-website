@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { BRAND_NAME, BASE } from '../../site';
+const hubs=[
+ {t:'Website Services',plain:'A website, store or app your customers love — and you can edit yourself.',tech:'Custom design & UX on WordPress, Shopify, Wix or Squarespace; no-code apps in FlutterFlow / Adalo.',h:'/services/website-services',items:['Web Design','UX Design','Website Builder','No-Code App Builder','eCommerce Setup'],for:'Small businesses & growing stores'},
+ {t:'Managed Hosting',plain:'Hosting that just works. Set up, secured, backed up and watched — you never touch a server.',tech:'Managed WordPress, VPS and dedicated servers; daily backups, SSL, monitoring.',h:'/services/managed-hosting',items:['Managed WordPress','Managed VPS','Dedicated Servers'],for:'Sites that must stay up'},
+ {t:'Professional Services',plain:'Cloud, containers and compliance, done properly — by specialists, with a clear handover.',tech:'Cloud landing zones, managed Kubernetes & OpenShift, AI, compliance readiness (not certification), staffing.',h:'/services/professional-services',items:['Cloud & Infrastructure','Managed Kubernetes','Managed OpenShift','Managed Containers','Compliance Readiness','AI Consulting','Consultancy','Staffing','Talent Marketplace'],for:'Technical teams'},
+];
+---
+<Base title="Services" description="Website services, managed hosting and professional services — design, WordPress, VPS, dedicated, cloud, Kubernetes, OpenShift, AI and compliance readiness.">
+<section><div class="container">
+<p class="eyebrow">Services</p>
+<h1>Everything you need to launch, run and grow online — in one team.</h1>
+<p class="lead">Three silos, one team. Pick the silo that matches your problem — every service inside it has its own page, its own deliverables, and a custom quote. Not sure which one? Start with Website Services — most clients do.</p>
+<div class="grid3">{hubs.map(h=><div class="card silo"><span class="tag">{h.for}</span><h3>{h.t}</h3><p class="plain">{h.plain}</p><p class="tech">{h.tech}</p><ul>{h.items.map(i=><li>{i}</li>)}</ul><a href={BASE+h.h}>Explore {h.t} →</a></div>)}</div>
+<div class="note" style="margin-top:28px"><strong>Pricing:</strong> every project is quoted. Tell us your budget and we'll tell you what fits — before you commit to anything. What changes the price: number of pages, a store or app, and hosting &amp; care after launch.</div>
+</div></section>
+</Base>
