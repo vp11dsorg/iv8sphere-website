@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 124" role="img" aria-label="iv8Sphere logo option B — brush-stroke 8">
+  <defs>
+    <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0077A8"/><stop offset=".55" stop-color="#0E7C5B"/><stop offset="1" stop-color="#5B4BC4"/>
+    </linearGradient>
+  </defs>
+  <!-- One continuous pen stroke, drawn as a figure-8 with a slight hand wobble, round caps. -->
+  <path d="M61 13 C 77 12 87 25 84 39 C 81 53 70 59 60 60 C 50 61 39 67 39 81 C 39 97 51 109 63 109 C 77 109 87 99 83 84 C 79 70 69 64 60 60 C 52 56 44 50 44 38 C 44 26 50 14 61 13 Z" fill="none" stroke="url(#gB)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Signature sweep underneath. -->
+  <path d="M28 116 C 52 122 84 120 102 106" fill="none" stroke="#5B4BC4" stroke-width="4" stroke-linecap="round"/>
+</svg>
