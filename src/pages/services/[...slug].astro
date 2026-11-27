@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { SERVICES, PRACTICES } from '../../data/services';
-import { BASE, BRAND_NAME } from '../../site';
+import { BASE, BRAND_NAME, seoTitle } from '../../site';
 export function getStaticPaths() {
   return SERVICES.map(s => ({ params: { slug: s.slug }, props: { service: s } }));
 }
@@ -10,13 +10,12 @@ const practice = PRACTICES.find(p => p.slug === service.practice);
 const others = SERVICES.filter(s => s.practice === service.practice && s.slug !== service.slug);
 const groupOthers = SERVICES.filter(s => s.group === service.group && s.slug !== service.slug);
 ---
-<Base title={service.title} description={service.plain.slice(0, 155)}>
+<Base title={service.title} seoTitle={seoTitle(service.short)} description={service.plain.slice(0, 155)}>
 <section><div class="container">
 <p class="breadcrumb"><a href={`${BASE}/services`}>Services</a> / <a href={`${BASE}/practices/${service.practice}`}>{practice ? practice.name : service.group}</a> / {service.title}</p>
 <p class="eyebrow">{practice ? practice.name : service.group} · {service.group}</p>
 <h1>{service.title}</h1>
 <p style="font-size:21px;max-width:760px;color:var(--ink);font-weight:600">{service.tagline}</p>
-<p class="lead" style="margin-top:16px"><strong>What am I selling here?</strong> {service.plain.split('.')[0]}.</p>
 <div class="note" style="margin:24px 0"><strong>One team, start to finish:</strong> {BRAND_NAME} designs, builds, runs and staffs your technology — so your business keeps working, without you managing the technology. This service is one part of that. Buy it alone, or with the rest.</div>
 <h2>In plain English</h2>
 <p style="max-width:760px">{service.plain}</p>
@@ -29,10 +28,10 @@ const groupOthers = SERVICES.filter(s => s.group === service.group && s.slug !==
 <h2>What you get</h2>
 <ul class="check">{service.deliverables.map(d => <li><b>{d.t}</b> — {d.d}</li>)}</ul>
 <h2 style="margin-top:40px">How it works</h2>
-<div class="steps" style="grid-template-columns:repeat(4,1fr)">{service.steps.map((st,i) => <div class="step"><b>{String(i+1).padStart(2,'0')}</b><h3>{st.t}</h3><p>{st.d}</p></div>)}</div>
+<div class="steps four">{service.steps.map((st,i) => <div class="step"><b>{String(i+1).padStart(2,'0')}</b><h3>{st.t}</h3><p>{st.d}</p></div>)}</div>
 <h2 style="margin-top:40px">What it costs</h2>
 <p style="max-width:760px">Every project is quoted, and we scope before we quote — a number produced without seeing your business is a guess you would end up budgeting against. Tell us your budget in the form and we tell you what fits, in writing, before you commit. No fixed price list, no hidden fees.</p>
-<table class="compare"><tr><th>What changes the price</th><th>How</th></tr>{service.costDrivers.map(c => <tr><td>{c.t}</td><td>{c.d}</td></tr>)}</table>
+<div class="table-scroll"><table class="compare"><tr><th>What changes the price</th><th>How</th></tr>{service.costDrivers.map(c => <tr><td>{c.t}</td><td>{c.d}</td></tr>)}</table></div>
 <h2 style="margin-top:40px">Before you ask</h2>
 <div class="faq">{service.faqs.map(f => <details><summary>{f.q}</summary><p style="margin-top:10px">{f.a}</p></details>)}</div>
 <h2 style="margin-top:40px">More in {practice ? practice.name : service.group}</h2>
