@@ -1,0 +1,55 @@
+---
+import Demo from '../../layouts/Demo.astro';
+const nav=[{href:'#menu',label:'Menu'},{href:'#visit',label:'Visit'},{href:'#book',label:'Book a table'}];
+---
+<Demo title="Maple & Main Café" seoTitle="Maple & Main Café — Demo Café Website in Canada | iv8Sphere" description="Demo café website: menu, hours, bookings. A small-business site built by iv8Sphere — example scope, not a client."
+ name="Maple & Main Café" tagline="Coffee, breakfast and lunch in Toronto's west end." accent="#8A5A2B" accent2="#3F6B4F" bg="#FBF6EE" ink="#2B2118" nav={nav}>
+<section class="demo-hero"><div class="demo-wrap">
+<h1>Good coffee. Honest food. A table that feels like yours.</h1>
+<p class="lead">Maple &amp; Main is a neighbourhood café in Toronto's west end. Espresso pulled properly, breakfast cooked to order, and lunch that does not taste like a meeting. Walk in, sit down, stay a while.</p>
+<a class="cta" href="#book">Book a table →</a>
+</div></section>
+<section class="demo-sec" id="menu"><div class="demo-wrap">
+<h2>The menu</h2>
+<p class="sub">Everything made in-house, every day. Prices in Canadian dollars.</p>
+<div class="demo-two">
+<div class="demo-box"><h3>Coffee &amp; drinks</h3><ul class="demo-list">
+<li><span><b>Espresso</b> — double shot</span><span class="pr">$3.50</span></li>
+<li><span><b>Flat white</b> — oat, almond or dairy</span><span class="pr">$5.00</span></li>
+<li><span><b>Filter coffee</b> — bottomless until 11am</span><span class="pr">$3.00</span></li>
+<li><span><b>Maple latte</b> — real maple, steamed milk</span><span class="pr">$5.75</span></li>
+<li><span><b>House chai</b> — brewed, not powdered</span><span class="pr">$5.25</span></li>
+</ul></div>
+<div class="demo-box"><h3>Breakfast &amp; lunch</h3><ul class="demo-list">
+<li><span><b>Avocado toast</b> — sourdough, egg, chilli oil</span><span class="pr">$13</span></li>
+<li><span><b>Breakfast sandwich</b> — egg, cheddar, bacon or halloumi</span><span class="pr">$11</span></li>
+<li><span><b>Shakshuka</b> — eggs, tomato, feta, bread</span><span class="pr">$15</span></li>
+<li><span><b>Soup of the day</b> — with sourdough</span><span class="pr">$10</span></li>
+<li><span><b>Grilled cheese</b> — three cheeses, tomato soup</span><span class="pr">$14</span></li>
+</ul></div>
+</div>
+</div></section>
+<section class="demo-sec" id="visit" style="background:#fff;border-top:1px solid #e2ddd3;border-bottom:1px solid #e2ddd3"><div class="demo-wrap">
+<h2>Visit us</h2>
+<p class="sub">1240 Dundas Street West, Toronto. Streetcar 505 stops at the door. Free Wi-Fi, laptop-friendly until 3pm.</p>
+<div class="demo-two">
+<div class="demo-box"><h3>Hours</h3><ul class="demo-list">
+<li><span><b>Monday – Friday</b></span><span class="pr">7:30am – 4pm</span></li>
+<li><span><b>Saturday</b></span><span class="pr">8am – 5pm</span></li>
+<li><span><b>Sunday</b></span><span class="pr">8am – 3pm</span></li>
+</ul></div>
+<div class="demo-box"><h3>Good to know</h3><p>Beans roasted in-house every Tuesday. Takeaway cups are compostable. We cater office breakfasts from 10 people — email us a week ahead.</p></div>
+</div>
+</div></section>
+<section class="demo-sec" id="book"><div class="demo-wrap" style="max-width:640px">
+<h2>Book a table</h2>
+<p class="sub">Tables for 1–6, up to two weeks ahead. For 7 or more, email us.</p>
+<form class="demo-form" onsubmit="event.preventDefault();document.getElementById('booked').style.display='block';">
+<label for="b-name">Name</label><input id="b-name" type="text" required />
+<label for="b-date">Date</label><input id="b-date" type="date" required />
+<label for="b-party">Party size</label><select id="b-party"><option>1–2 people</option><option>3–4 people</option><option>5–6 people</option></select>
+<button type="submit">Request a table</button>
+</form>
+<p id="booked" style="display:none;margin-top:16px;font-weight:700;color:var(--accent)">Thanks — your request is noted. This is a demo form: it does not send anything.</p>
+</div></section>
+</Demo>
