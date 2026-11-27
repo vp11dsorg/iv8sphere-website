@@ -1,8 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="iv8Sphere logo">
-  <g fill="none" stroke="#00C2FF" stroke-width="7" stroke-linecap="round">
-    <circle cx="60" cy="43" r="27"/>
-    <circle cx="60" cy="79" r="27"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="iv8Sphere logo — a single-stroke 8 folding into an orbit, with an S in the lower loop">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0077A8"/>
+      <stop offset=".55" stop-color="#0E7C5B"/>
+      <stop offset="1" stop-color="#5B4BC4"/>
+    </linearGradient>
+    <mask id="scut">
+      <rect width="120" height="120" fill="#fff"/>
+      <path d="M73 72 C70 67 65 65 60 65 C53 65 49 69 49 74 C49 79 53 81 60 83 C67 85 73 87 73 93 C73 99 68 103 60 103 C53 103 48 100 46 95" fill="none" stroke="#000" stroke-width="7.5" stroke-linecap="round"/>
+    </mask>
+  </defs>
+  <!-- One continuous pen stroke: a single closed outline that folds from the top loop, pinches at the waist, and opens into the lower loop — the 8. -->
+  <g mask="url(#scut)">
+    <path fill="url(#g)" d="M60 10 C76 10 88 22 88 36 C88 48 80 56 68 58 C82 60 94 70 94 84 C94 100 79 110 60 110 C41 110 26 100 26 84 C26 70 38 60 52 58 C40 56 32 48 32 36 C32 22 44 10 60 10 Z"/>
   </g>
-  <ellipse cx="60" cy="61" rx="55" ry="20" fill="none" stroke="#7C5CFF" stroke-width="3" transform="rotate(-18 60 61)"/>
-  <circle cx="108" cy="45" r="5" fill="#7C5CFF"/>
+  <!-- Orbit: the sphere's ring, crossing the 8, with a satellite dot. -->
+  <ellipse cx="60" cy="60" rx="56" ry="22" fill="none" stroke="#0077A8" stroke-width="4" transform="rotate(-18 60 60)"/>
+  <circle cx="110" cy="42" r="5.5" fill="#5B4BC4"/>
 </svg>
