@@ -28,7 +28,6 @@ Live: https://vp11dsorg.github.io/iv8sphere-website/
 - Professional Services: /services/professional-services/ + 9 child pages
 - Practices: /practices/ + 7 practice pages
 - Work: /work/ + 3 example-scope pages (labelled example scopes, not client work)
-- Whitepapers: /whitepapers/ + 3 research-brief pages (published sources, not lab tests)
 
 ## Content rules
 
