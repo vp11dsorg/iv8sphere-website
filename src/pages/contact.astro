@@ -1,23 +1,37 @@
 ---
 import Base from '../layouts/Base.astro';
+import { BASE } from '../site';
 ---
-<Base title="Contact" description="Tell iv8Sphere about your project — a real reply within 1 business day.">
+<Base title="Contact" description="Book a strategy call with iv8 — tell us your goal, get a written scope and quote.">
 <section><div class="container"><div class="grid2">
-<div><p class="eyebrow">Contact</p><h1>Tell us about your project.</h1><p>One short form. A real reply within 1 business day.</p><p><strong>Email:</strong> hello@iv8sphere.example<br/><strong>Based in Canada.</strong> Working worldwide.<br/><strong>Book a call:</strong> tell us a time in your message and we'll confirm.</p></div>
+<div><p class="eyebrow">Contact</p><h1>Book a strategy call.</h1><p>One short form. A real reply within 1 business day, with a written scope and quote — before you commit to anything.</p><p><strong>Based in Canada.</strong> Working worldwide.<br/><strong>Book a call:</strong> tell us a time in your message and we will confirm.<br/><strong>Email:</strong> not published yet — it will be added here when it is confirmed.</p><p style="font-size:15px">Until then, this form builds your project brief below, so nothing is lost. Copy it and bring it to your first call.</p></div>
 <div>
 <form id="contact-form">
 <label for="name">Name</label><input id="name" name="name" required />
 <label for="email">Email</label><input id="email" name="email" type="email" required />
 <label for="company">Company</label><input id="company" name="company" />
 <label for="budget">Budget</label><select id="budget" name="budget"><option>Under $5k</option><option>$5–15k</option><option>$15–50k</option><option>$50k+</option><option>Not sure</option></select>
-<label for="type">Project type</label><select id="type" name="type"><option>Website Services</option><option>Managed Hosting</option><option>Professional Services</option><option>Something else</option></select>
+<label for="practice">Practice</label><select id="practice" name="practice"><option>Web Design &amp; Experience</option><option>Managed Hosting</option><option>Cloud &amp; Containers</option><option>AI</option><option>Compliance Readiness</option><option>Consultancy</option><option>Staffing &amp; Talent</option><option>Not sure — help me choose</option></select>
 <label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="What do you need, and by when?"></textarea>
-<button class="btn" type="submit">Send →</button>
-<p id="form-ok" style="display:none;margin-top:12px"><strong>Thanks — your message is ready to send.</strong> This static form has no backend yet; email us directly at hello@iv8sphere.example and we'll reply within 1 business day.</p>
+<button class="btn" type="submit">Build my project brief →</button>
 </form>
+<div id="form-ok" style="display:none;margin-top:16px">
+<p><strong>Your project brief — copy it and bring it to your first call.</strong></p>
+<pre id="brief-text" style="white-space:pre-wrap;background:var(--bg);padding:16px;border-radius:12px;font-size:14px"></pre>
+<button class="btn dark" type="button" id="copy-brief">Copy brief</button>
+<p id="copied" style="display:none;margin-top:8px"><strong>Copied.</strong></p>
+</div>
 <script>
-document.getElementById('contact-form').addEventListener('submit', function(e){ e.preventDefault(); document.getElementById('form-ok').style.display='block'; });
-const q = new URLSearchParams(location.search); const s = q.get('service'); if (s) { const t=document.getElementById('type'); }
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var g = function(id){ return document.getElementById(id).value || '-'; };
+  var q = new URLSearchParams(location.search);
+  var svc = q.get('service') || q.get('practice') || '';
+  var brief = 'PROJECT BRIEF\nName: ' + g('name') + '\nEmail: ' + g('email') + '\nCompany: ' + g('company') + '\nBudget: ' + g('budget') + '\nPractice: ' + g('practice') + (svc ? ' (service: ' + svc + ')' : '') + '\nMessage: ' + g('message');
+  document.getElementById('brief-text').textContent = brief;
+  document.getElementById('form-ok').style.display = 'block';
+  document.getElementById('copy-brief').onclick = function(){ navigator.clipboard.writeText(brief).then(function(){ document.getElementById('copied').style.display='block'; }); };
+});
 </script>
 </div>
 </div></div></section>
