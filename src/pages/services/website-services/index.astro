@@ -1,0 +1,16 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SERVICES } from '../../../data/services';
+import { BASE } from '../../../site';
+const list = SERVICES.filter(s => s.group === 'Website Services');
+---
+<Base title="Website Services" description="Web design, UX, website builder, no-code app builder and eCommerce setup.">
+<section><div class="container">
+<p class="breadcrumb"><a href={`${BASE}/services`}>Services</a> / Website Services</p>
+<p class="eyebrow">Services · For businesses</p>
+<h1>Website Services</h1>
+<p class="lead">Design and build for businesses that want a website they can use, edit and grow — custom design on the platforms the world already uses. <strong>In plain English:</strong> we make your website. <strong>Technically:</strong> custom design &amp; UX on WordPress (38.6% of the web), Shopify, Wix or Squarespace, plus no-code apps.</p>
+<div class="grid3">{list.map(s => <div class="card silo"><h3>{s.title}</h3><p class="plain">{s.tagline}</p><p class="tech">{s.intro}</p><a href={`${BASE}/services/${s.slug}`}>Explore →</a></div>)}</div>
+<div class="note blue" style="margin-top:28px"><strong>Not sure which one?</strong> Most clients start with Web Design. Tell us your goal in the form and we'll point you to the right one — before you commit to anything.</div>
+</div></section>
+</Base>
