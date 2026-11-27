@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://vp11dsorg.github.io/iv8Spheresphere-website/sitemap.xml
+
+Sitemap: https://vp11dsorg.github.io/iv8sphere-website/sitemap.xml
