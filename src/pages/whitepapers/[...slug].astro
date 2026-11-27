@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { BASE } from '../../site';
+import { PAPERS } from '../../data/whitepapers';
+export function getStaticPaths() { return PAPERS.map(p => ({ params: { slug: p.slug }, props: { item: p } })); }
+const { item } = Astro.props;
+---
+<Base title={item.title} description={item.sub}>
+<section><div class="container">
+<p class="breadcrumb"><a href={`${BASE}/whitepapers`}>Whitepapers</a> / {item.title}</p>
+<p class="eyebrow">Whitepapers · Research brief</p>
+<h1>{item.title}</h1>
+<p class="lead">{item.sub}</p>
+<div class="note" style="margin:24px 0"><strong>Research brief — published sources, not our lab test.</strong> {item.method}</div>
+<h2>What this brief says</h2><p style="max-width:760px">{item.summary}</p>
+<h2>Findings</h2><ul class="check">{item.findings.map(f => <li>{f}</li>)}</ul>
+<h2>Related services</h2><div class="grid3">{item.related.map(r => <div class="card"><h3>{r.title}</h3><a href={`${BASE}/services/${r.slug}`}>Explore {r.title} →</a></div>)}</div>
+<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact`}>Book a strategy call →</a> <a class="btn ghost dark" style="color:var(--navy);border-color:var(--navy)" href={`${BASE}/whitepapers`}>See all research briefs →</a></p>
+</div></section>
+</Base>
