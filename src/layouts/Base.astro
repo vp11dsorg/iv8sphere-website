@@ -12,16 +12,16 @@ const desc = description || `${BRAND_NAME} is a team of 10–20 designers in Can
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{pageTitle}</title>
 <meta name="description" content={desc} />
-<link rel="icon" href={`${BASE}/images/logo-iv8sphere.webp`} />
+<link rel="icon" href={LOGO} />
 </head>
 <body>
-<div class="announce">Now booking December projects — 2 slots left. <a href={`${BASE}/contact`}>Start a Project →</a></div>
+<div class="announce">Your technology, designed, built and run by one team. <a href={`${BASE}/contact`}>Book a strategy call →</a></div>
 <header class="site"><div class="container nav">
 <a class="brand" href={BASE + '/'} aria-label={`${BRAND_NAME} home`}><img class="logo" src={LOGO} alt={`${BRAND_NAME} logo`} width="42" height="42" /><span>{BRAND_NAME}</span></a>
 <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav nav').classList.toggle('open')">☰</button>
 <nav>{NAV.map(i => <a href={BASE + i.href}>{i.label}</a>)}</nav>
-<select class="lang" aria-label="Language"><option>🌐 English</option><option>Français</option><option>Español</option><option>Deutsch</option></select>
-<a class="btn sm" href={`${BASE}/contact`}>Start a Project</a>
+
+<a class="btn sm" href={`${BASE}/contact`}>Book a strategy call</a>
 </div></header>
 <main>
 <slot />
@@ -30,7 +30,7 @@ const desc = description || `${BRAND_NAME} is a team of 10–20 designers in Can
 <h2>Tell us about your project.</h2>
 <p>One short form. A real reply within 1 business day — and a free first step: tell us your goal, and we'll show you what fits before you commit to anything.</p>
 <div class="steps-mini"><span>1 · Tell us your goal</span><span>2 · We show you what fits</span><span>3 · You decide — no pressure</span></div>
-<a class="btn light" href={`${BASE}/contact`}>Start a Project →</a>
+<a class="btn light" href={`${BASE}/contact`}>Book a strategy call →</a>
 </div></div></section>
 <footer><div class="container foot">
 <div><a class="brand" href={BASE + '/'}><span>{BRAND_NAME}</span></a><p style="color:#AEBFD6;margin-top:12px">{BRAND_TAGLINE}<br/>Based in Canada. Working worldwide.<br/>Web design, hosting &amp; cloud — one team, start to finish.</p></div>
