@@ -314,3 +314,9 @@ form button{margin-top:20px}
 /* v5 fix — plan footers must not inherit the site footer background; "You do:" stays small sans. */
 .plan footer{background:none}
 .step .you b{font-family:var(--sans);font-size:14px;color:var(--ink)}
+
+/* trust chips — Cultivators rhythm: one short plain paragraph, then a chip row of true claims only */
+.trust-chips{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 4px}
+.trust-chips span{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:700;box-shadow:var(--shadow-sm)}
+.final .eyebrow{justify-content:center}
+.final h2 em{font-style:italic;color:var(--accent)}
