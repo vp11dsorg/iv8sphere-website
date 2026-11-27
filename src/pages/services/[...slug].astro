@@ -36,6 +36,6 @@ const groupOthers = SERVICES.filter(s => s.group === service.group && s.slug !==
 <div class="faq">{service.faqs.map(f => <details><summary>{f.q}</summary><p style="margin-top:10px">{f.a}</p></details>)}</div>
 <h2 style="margin-top:40px">More in {practice ? practice.name : service.group}</h2>
 <div class="grid3">{others.map(o => <div class="card"><h3>{o.title}</h3><p>{o.tagline}</p><a href={`${BASE}/services/${o.slug}`}>Explore {o.title} →</a></div>)}</div>
-<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact?service=${service.slug}`}>Contact us →</a> <a class="btn ghost dark" style="color:var(--navy);border-color:var(--navy)" href={`${BASE}/practices/${service.practice}`}>See the full practice →</a></p>
+<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact?service=${service.slug}`}>Contact us →</a> <a class="btn ghost" href={`${BASE}/practices/${service.practice}`}>See the full practice →</a></p>
 </div></section>
 </Base>
