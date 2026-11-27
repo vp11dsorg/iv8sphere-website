@@ -1,0 +1,42 @@
+---
+import Demo from '../../layouts/Demo.astro';
+const nav=[{href:'#shop',label:'Shop'},{href:'#shipping',label:'Shipping'},{href:'#visit',label:'Visit'}];
+const products=[
+ {name:'Trail Runner Pack 28L',desc:'Waterproof, hip-belt pockets, rain cover included.',price:'$129'},
+ {name:'Insulated Jacket',desc:'800-fill down, packs into its own pocket.',price:'$249'},
+ {name:'2-Person Tent',desc:'3-season, 2.1 kg, sets up in under 5 minutes.',price:'$189'},
+ {name:'Trekking Poles',desc:'Carbon, collapsible, cork grips.',price:'$79'},
+ {name:'Merino Base Layer',desc:'190 gsm, odour-resistant, flatlock seams.',price:'$59'},
+ {name:'Camp Stove + Pot',desc:'Boils a litre in 3 minutes, 320 g.',price:'$89'},
+];
+---
+<Demo title="Northwood Outfitters" seoTitle="Northwood Outfitters — Demo Store Website | iv8Sphere" description="Demo online store: outdoor gear with products, prices and checkout. A store built by iv8Sphere — example scope, not a client."
+ name="Northwood Outfitters" tagline="Outdoor gear, tested on real trails." accent="#2E6B3E" accent2="#C96A2B" bg="#F4F6F1" ink="#1E2A22" nav={nav}>
+<section class="demo-hero"><div class="demo-wrap">
+<h1>Gear that survives the trail. Prices that don't need a sale.</h1>
+<p class="lead">Northwood Outfitters sells hiking, camping and trail-running gear we have actually used. Every product is tested by our staff before it goes on the shelf — and every price includes free returns for 60 days.</p>
+<a class="cta" href="#shop">Shop the collection →</a>
+</div></section>
+<section class="demo-sec" id="shop"><div class="demo-wrap">
+<h2>Featured gear</h2>
+<p class="sub">Prices in Canadian dollars. Free shipping over $99.</p>
+<div class="demo-grid">{products.map(p => <div class="demo-card"><h3>{p.name}</h3><p>{p.desc}</p><p class="price">{p.price}</p></div>)}</div>
+</div></section>
+<section class="demo-sec" id="shipping" style="background:#fff;border-top:1px solid #e2ddd3;border-bottom:1px solid #e2ddd3"><div class="demo-wrap">
+<h2>Shipping &amp; returns</h2>
+<p class="sub">No fine print, no restocking fees.</p>
+<div class="demo-grid">
+<div class="demo-card"><h3>Free shipping over $99</h3><p>Orders under $99 ship for $9.95 flat, anywhere in Canada. Dispatched within 1 business day.</p></div>
+<div class="demo-card"><h3>60-day returns</h3><p>Used it, didn't like it, send it back. Full refund, no questions, no restocking fee.</p></div>
+<div class="demo-card"><h3>Price match</h3><p>Find the same item cheaper at a Canadian retailer within 14 days and we refund the difference.</p></div>
+</div>
+</div></section>
+<section class="demo-sec" id="visit"><div class="demo-wrap">
+<h2>Visit the store</h2>
+<p class="sub">2100 Lakeshore Road, Burlington, Ontario. Open Monday–Saturday 9am–6pm, Sunday 10am–5pm.</p>
+<div class="demo-two">
+<div class="demo-box"><h3>Try it before you buy it</h3><p>Boots, packs and tents are on the floor to try. Staff hike the trails they recommend — ask them which pack fits your trip, not which one costs most.</p></div>
+<div class="demo-box"><h3>Repairs &amp; rentals</h3><p>We repair zippers, seams and poles in-store, and rent tents, packs and stoves by the weekend. Rental gear is cleaned and checked after every trip.</p></div>
+</div>
+</div></section>
+</Demo>
