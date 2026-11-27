@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { BASE } from '../../site';
+import { WORK } from '../../data/work';
+export function getStaticPaths() { return WORK.map(w => ({ params: { slug: w.slug }, props: { item: w } })); }
+const { item } = Astro.props;
+---
+<Base title={item.title} description={item.sub}>
+<section><div class="container">
+<p class="breadcrumb"><a href={`${BASE}/work`}>Work</a> / {item.title}</p>
+<p class="eyebrow">Work · Example scope</p>
+<h1>{item.title}</h1>
+<p class="lead">{item.sub}</p>
+<div class="note" style="margin:24px 0"><strong>Example scope — not a named client project.</strong> This is a detailed, typical project of this type, so you can see exactly what you would get. No client name, no logo, no invented results.</div>
+<h2>The problem</h2><p style="max-width:760px">{item.problem}</p>
+<h2>What was built</h2><ul class="check">{item.built.map(b => <li>{b}</li>)}</ul>
+<h2>Stack</h2><p style="max-width:760px">{item.stack}</p>
+<h2>Timeline</h2><p style="max-width:760px">{item.timeline}</p>
+<h2>Outcome</h2><p style="max-width:760px">{item.outcome}</p>
+<h2>What it costs</h2><p style="max-width:760px">Every project is quoted, and we scope before we quote. What moves the price here: number of pages or products, whether content is ready, and hosting and care after launch. Tell us your budget and we tell you what fits, in writing, before you commit.</p>
+<h2>Related services</h2><div class="grid3">{item.related.map(r => <div class="card"><h3>{r.title}</h3><a href={`${BASE}/services/${r.slug}`}>Explore {r.title} →</a></div>)}</div>
+<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact`}>Book a strategy call →</a> <a class="btn ghost dark" style="color:var(--navy);border-color:var(--navy)" href={`${BASE}/work`}>See all example scopes →</a></p>
+</div></section>
+</Base>
