@@ -21,6 +21,6 @@ const { item } = Astro.props;
 <h2>The result</h2><p style="max-width:760px">{item.outcome}</p>
 <h2>What it costs</h2><p style="max-width:760px">Every project is quoted, and we scope before we quote. What moves the price here: number of pages or products, whether content is ready, and hosting and care after launch. Tell us your budget and we tell you what fits, in writing, before you commit.</p>
 <h2>Related services</h2><div class="grid3">{item.related.map(r => <div class="card"><h3>{r.title}</h3><a href={`${BASE}/services/${r.slug}`}>Explore {r.title} →</a></div>)}</div>
-<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact`}>Contact us →</a> <a class="btn ghost dark" style="color:var(--navy);border-color:var(--navy)" href={`${BASE}/work`}>See all example scopes →</a></p>
+<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact`}>Contact us →</a> <a class="btn ghost" href={`${BASE}/work`}>See all example scopes →</a></p>
 </div></section>
 </Base>
