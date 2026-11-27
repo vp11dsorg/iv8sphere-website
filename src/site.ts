@@ -7,7 +7,7 @@ export const BRAND_TAGLINE = 'Design. Build. Run.';
 export const LOGO = '/iv8sphere-website/images/logo-8-sphere.svg';
 export const FAVICON = '/iv8sphere-website/images/favicon-sphere.png';
 export const OG_IMAGE = '/iv8sphere-website/images/og-sphere.png';
-export const KEYWORD_DESCRIPTION = 'Web design, managed hosting & cloud in Canada — iv8Sphere designs, builds and runs websites, stores and apps, with one team start to finish and no lock-in.';
+export const KEYWORD_DESCRIPTION = 'Web design, managed hosting & cloud in Canada — iv8Sphere designs, builds and runs websites, stores and apps.';
 
 /** Every page title is the full legal name, exactly. Kept for callers that pass a page name. */
 export function seoTitle(_page: string): string {
