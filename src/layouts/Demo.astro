@@ -34,7 +34,10 @@ const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
   .demo-backbar{position:sticky;top:0;z-index:100;background:#0B1F3A;color:#fff;border-bottom:3px solid #00C2FF}
   .demo-backbar .bar-in{max-width:1060px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px;line-height:1.4}
   .demo-backbar a.back{color:#fff;font-weight:800;text-decoration:none;white-space:nowrap;background:#00C2FF;color:#04263A;padding:7px 14px;border-radius:999px}
-  .demo-backbar a.back:hover{filter:brightness(1.1)}
+  /* Hover used to be filter:brightness(1.1) — brightening the cyan is safe for
+     the dark text, but a solid white hover is unmistakable and keeps the dark
+     text at ~14:1 instead of relying on a filter. */
+  .demo-backbar a.back:hover{background:#fff;color:#04263A}
   .demo-backbar .lbl{color:#C7D6EA;flex:1 1 220px;min-width:0}
   .demo-backbar a.work{color:#7FD4FF;font-weight:700;white-space:nowrap}
   .demo-backbar a.work:hover{color:#fff}
@@ -50,12 +53,16 @@ const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
   .demo-head .dname{font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:-.02em}
   .demo-head nav{display:flex;gap:4px;flex-wrap:wrap}
   .demo-head nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;padding:8px 12px;border-radius:8px}
-  .demo-head nav a:hover{background:rgba(0,0,0,.06)}
+  .demo-head nav a:hover{background:rgba(0,0,0,.06);color:var(--ink);text-decoration:underline;text-underline-offset:3px}
   .demo-hero{padding:56px 0 40px;border-bottom:2px solid var(--ink)}
   .demo-hero h1{font-family:Georgia,serif;font-size:clamp(32px,5.5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
   .demo-hero p.lead{font-size:19px;max-width:640px;margin:0 0 24px}
   .demo-hero .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:10px}
-  .demo-hero .cta:hover{filter:brightness(1.08)}
+  /* Hover used to be filter:brightness(1.08) — brightening the accent lightens
+     the background under white text. Harbour's accent drops white text to
+     4.38:1 (fails AA). Hover now goes DARK (the demo's own ink, 13.8–15.8:1
+     for white text) instead of lighter. */
+  .demo-hero .cta:hover{background:var(--ink);color:#fff}
   .demo-sec{padding:48px 0}
   .demo-sec h2{font-family:Georgia,serif;font-size:clamp(24px,3.5vw,32px);letter-spacing:-.02em;margin:0 0 8px}
   .demo-sec .sub{color:#555;max-width:640px;margin:0 0 28px}
@@ -75,9 +82,13 @@ const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
   .demo-box p{margin:0;color:#444}
   .demo-foot{border-top:2px solid var(--ink);padding:32px 20px 48px;color:#555;font-size:14px}
   .demo-foot a{color:var(--accent);font-weight:700}
+  .demo-foot a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
   .demo-form label{display:block;font-weight:600;font-size:14px;margin:14px 0 4px}
   .demo-form input,.demo-form select,.demo-form textarea{width:100%;padding:12px;border:1px solid #c9c2b4;border-radius:8px;font-size:16px;font-family:inherit}
   .demo-form button{background:var(--accent);color:#fff;border:0;font-weight:700;padding:14px 26px;border-radius:10px;font-size:16px;cursor:pointer;margin-top:18px}
+  /* No hover rule existed; add the same dark hover as the hero CTA so the
+     white label never sits on a brightened accent. */
+  .demo-form button:hover{background:var(--ink);color:#fff}
   @media (max-width:820px){.demo-grid,.demo-two{grid-template-columns:1fr}.demo-hero{padding:40px 0 32px}.demo-sec{padding:36px 0}}
 </style>
 </head>
