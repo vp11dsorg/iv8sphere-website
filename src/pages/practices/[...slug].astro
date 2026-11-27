@@ -20,6 +20,6 @@ const children = SERVICES.filter(s => s.practice === practice.slug);
 <div class="grid3">{children.map(s => <div class="card silo"><h3>{s.title}</h3><p class="plain">{s.tagline}</p><p class="tech">{s.plain.split('.')[0]}.</p><a href={`${BASE}/services/${s.slug}`}>Explore {s.title} →</a></div>)}</div>
 <h2 style="margin-top:40px">How this practice works</h2>
 <p style="max-width:760px">Every engagement in this practice starts with a strategy call, then a written scope: what will be done, what it costs, and what you get. Ongoing services are monthly. Projects are scoped and priced as projects. Staffing is a person, for a fixed period. You can buy any one without the others.</p>
-<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact?practice=${practice.slug}`}>Contact us →</a> <a class="btn ghost dark" style="color:var(--navy);border-color:var(--navy)" href={`${BASE}/services`}>See all seven practices →</a></p>
+<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact?practice=${practice.slug}`}>Contact us →</a> <a class="btn ghost" href={`${BASE}/services`}>See all seven practices →</a></p>
 </div></section>
 </Base>
