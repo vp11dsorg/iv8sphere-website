@@ -8,14 +8,14 @@ export function getStaticPaths() {
 const { practice } = Astro.props;
 const children = SERVICES.filter(s => s.practice === practice.slug);
 ---
-<Base title={practice.name} description={practice.short}>
+<Base title={practice.name} description={(practice.short + ' ' + practice.proof).slice(0, 155)}>
 <section><div class="container">
 <p class="breadcrumb"><a href={`${BASE}/services`}>Services</a> / <a href={`${BASE}/practices`}>Practices</a> / {practice.name}</p>
 <p class="eyebrow">Practice · {practice.name}</p>
 <h1>{practice.name}</h1>
 <p class="lead">{practice.short}</p>
 <p style="max-width:760px"><strong>What am I selling here?</strong> {practice.short} <strong>Proof:</strong> {practice.proof}</p>
-<div class="note" style="margin:24px 0"><strong>One team, start to finish:</strong> {BRAND_NAME} designs, builds, runs and staffs your technology — so your business keeps working, without you managing the technology. This practice is one of seven. Buy it alone, or with the rest.</div>
+<div class="note" style="margin:24px 0"><strong>One company for the whole job:</strong> {BRAND_NAME} designs, builds, runs and staffs your technology — so your business keeps working, without you managing the technology. This practice is one of seven. Buy it alone, or with the rest.</div>
 <h2>Services in this practice</h2>
 <div class="grid3">{children.map(s => <div class="card silo"><h3>{s.title}</h3><p class="plain">{s.tagline}</p><p class="tech">{s.plain.split('.')[0]}.</p><a href={`${BASE}/services/${s.slug}`}>Explore {s.title} →</a></div>)}</div>
 <h2 style="margin-top:40px">How this practice works</h2>
