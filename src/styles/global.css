@@ -47,6 +47,57 @@ h2{font-size:clamp(26px,3.6vw,38px)}
 h3{font-size:22px}
 p{margin:0 0 1em;color:var(--muted);overflow-wrap:break-word}
 a{color:var(--ink)}
+/* LINK STATES — every link must stay readable in :link, :visited, :hover and
+   :active. No state is left to the browser default (blue/purple), and no hover
+   rule may change a colour without keeping WCAG AA contrast (4.5:1 text, 3:1
+   large). This block exists because a previous `btn ghost dark` + inline navy
+   style made 27 pages' secondary buttons navy-on-ink (1.16:1) in ALL states.
+   Rules:
+   - buttons keep their own colour in every state (never recolour a .btn on hover)
+   - text links underline on hover/active so the state never relies on colour alone
+   - :visited always equals :link unless a context deliberately distinguishes it */
+a:link,a:visited{color:var(--ink)}
+a:hover{color:var(--accent2-text);text-decoration:underline;text-underline-offset:3px}
+a:active{color:var(--accent2-text);text-decoration:underline;text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--accent2-text);outline-offset:2px}
+/* Buttons: colour is set by the variant and never changes with state. */
+.btn:link,.btn:visited{color:var(--accent-ink)}
+.btn.ghost:link,.btn.ghost:visited{color:var(--ink)}
+.btn.dark:link,.btn.dark:visited{color:#fff}
+.btn.light:link,.btn.light:visited{color:var(--ink)}
+.btn:hover,.btn:active{text-decoration:none;color:var(--accent-ink)}
+.btn.ghost:hover,.btn.ghost:active{color:var(--ink)}
+.btn.dark:hover,.btn.dark:active{color:#fff}
+.btn.light:hover,.btn.light:active{color:var(--ink)}
+/* `ghost dark` is a contradictory combo (ghost = white bg, dark = ink bg). If it
+   ever comes back, it renders as ghost — white bg, ink text — never navy on ink. */
+.btn.ghost.dark{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn.ghost.dark:link,.btn.ghost.dark:visited{color:var(--ink)}
+.btn.ghost.dark:hover,.btn.ghost.dark:active{color:var(--ink)}
+/* Per-context explicit states — each coloured link keeps its colour in :link and
+   :visited, and underlines in :active (hover rules already exist per context). */
+.spec-row a:link,.spec-row a:visited{color:var(--accent)}
+.spec-row a:active{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.card a.view:link,.card a.view:visited{color:var(--accent2-text)}
+.card a.view:active{color:var(--accent2-text);text-decoration:underline;text-underline-offset:3px}
+.plan footer a:link,.plan footer a:visited{color:var(--accent2-text)}
+.plan footer a:active{color:var(--accent2-text);text-decoration:underline;text-underline-offset:3px}
+footer.site-foot a:link,footer.site-foot a:visited{color:#AEBFD6}
+footer.site-foot a:active{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.announce a:link,.announce a:visited{color:#fff}
+.announce a:active{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.socials a:link,.socials a:visited{color:#fff}
+.socials a:active{color:#fff}
+.demo-frame .demo-bar a:link,.demo-frame .demo-bar a:visited{color:var(--accent)}
+.demo-frame .demo-bar a:active{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.hero .cta-row .textlink:link,.hero .cta-row .textlink:visited{color:var(--ink)}
+.hero .cta-row .textlink:active{color:var(--accent2-text)}
+.nav-drop .drop-panel a:link,.nav-drop .drop-panel a:visited{color:var(--ink)}
+.nav-drop .drop-panel a:active{color:var(--accent2-text);text-decoration:underline;text-underline-offset:3px}
+.breadcrumb a:link,.breadcrumb a:visited{color:var(--muted)}
+.breadcrumb a:hover,.breadcrumb a:active{color:var(--accent2-text);text-decoration:underline;text-underline-offset:3px}
+.brand:link,.brand:visited{color:var(--ink)}
+footer.site-foot .brand:link,footer.site-foot .brand:visited{color:#fff}
 .container{max-width:1120px;margin:0 auto;padding:0 28px}
 section{padding:64px 0}
 section.tight{padding:56px 0}
