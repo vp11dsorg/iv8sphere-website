@@ -3,27 +3,26 @@ import Base from '../layouts/Base.astro';
 import { BRAND_NAME, BASE } from '../site';
 import { PRACTICES } from '../data/services';
 const faqs=[
- ['How much does a website cost?','Every project is quoted, because no two businesses need the same site. Tell us your budget in the form and we will tell you what fits, in writing, before you commit. What changes the price: number of pages, a store or app, and whether you need hosting and care after launch.'],
- ['How long does it take?','Most websites: 4–6 weeks from first call to launch. A focused build with ready content: 3 weeks. Larger builds: 8–12 weeks. Cloud, compliance and staffing engagements are scoped separately, with their own timelines in the written plan.'],
- ['Do you work outside Canada?','Yes — we are based in Canada and work worldwide, in your time zone.'],
- ['Who owns the website, the cloud account, and the data?','You do. Domain, website, cloud account, content and data — all in your accounts, in your name. No lock-in.'],
- ['Do you certify us for HIPAA or PCI DSS?','No — and no vendor can. Your auditor certifies you, after reviewing evidence. We build the systems and prepare the evidence so you can pass. See Compliance Readiness.'],
+ ['How much does a website cost?','Every project is quoted. Tell us your budget and we tell you what fits, in writing, before you commit.'],
+ ['How long does it take?','Most websites: 4–6 weeks from first call to launch.'],
+ ['Where are you based?','In Canada.'],
+ ['Do you certify us for HIPAA or PCI DSS?','No — and no vendor can. Your auditor certifies you. We build the systems and prepare the evidence so you can pass.'],
 ];
 const demos=[
- {slug:'maple-main',name:'Maple & Main Café',kind:'Small business website',desc:'Menu, hours, bookings and a story — a café site that gets people through the door.'},
- {slug:'northwood-outfitters',name:'Northwood Outfitters',kind:'Online store',desc:'A store with products, prices and a checkout that works on a phone.'},
+ {slug:'maple-main',name:'Maple & Main Café',kind:'Small business website',desc:'Menu, hours, bookings — a café site that gets people through the door.'},
+ {slug:'northwood-outfitters',name:'Northwood Outfitters',kind:'Online store',desc:'Products, prices and a checkout that works on a phone.'},
  {slug:'harbour-dental',name:'Harbour Dental',kind:'Service business website',desc:'Services, team and booking — a clinic site that answers questions before the call.'},
 ];
 ---
 <Base>
 <section class="hero"><div class="container hero-grid">
 <div>
-<span class="kicker-chip">Managed-services company · Canada — working worldwide</span>
+<span class="kicker-chip">Managed-services company · Based in Canada</span>
 <h1 style="margin-top:20px">Your technology, <span class="grad">designed, built and run</span> by one team.</h1>
-<p class="sub">One team that designs, builds, runs and staffs your technology — so your business keeps working, without you managing the technology.</p>
+<p class="sub">We design, build, run and staff your technology — so your business keeps working, without you managing the technology.</p>
 <p class="tech">For non-technical owners: we do the technology, you run your business. For technical teams: the detail is on every service page.</p>
-<div class="cta-row"><a class="btn" href={`${BASE}/contact`}>Book a strategy call →</a><a class="btn ghost" href={`${BASE}/practices`}>See the seven practices</a></div>
-<p class="micro"><b>10–20 specialists</b> · Design, hosting, cloud, AI, compliance, consultancy &amp; talent · <b>Custom quote</b> — scoped before quoting</p>
+<div class="cta-row"><a class="btn" href={`${BASE}/contact`}>Contact us →</a><a class="btn ghost" href={`${BASE}/services`}>See all services</a></div>
+<p class="micro"><b>10–20 specialists</b> · 7 practices · <b>Custom quote</b> — scoped before quoting</p>
 </div>
 <div class="specsheet" aria-label="What fits, at a glance">
 <header><b>What fits, at a glance</b><span>Spec sheet</span></header>
@@ -33,94 +32,67 @@ const demos=[
 <div class="spec-row"><b>AI &amp; compliance</b><span>Practical AI · readiness, not certification</span><a href={`${BASE}/services/professional-services`}>VIEW →</a></div>
 <footer><b>No fixed price list.</b> We scope before we quote — tell us your budget and we tell you what fits, in writing.</footer>
 </div>
+</div></section>
 
-<section class="answer tight"><div class="container"><div class="answer-grid">
-<div class="answer-card"><b>What we do</b><span>Design, build and run your technology — websites, hosting, cloud, AI, compliance and talent.</span></div>
-<div class="answer-card"><b>Who it's for</b><span>Small businesses, growing stores, and technical teams — in Canada and worldwide.</span></div>
-<div class="answer-card"><b>What you get</b><span>A fast site you own, hosting that is watched, cloud that is documented, and people you can call.</span></div>
-<div class="answer-card"><b>What it costs</b><span>Custom quote, scoped before quoting. Tell us your budget — we tell you what fits, before you commit.</span></div>
-<div class="answer-card"><b>What happens next</b><span>1 · Book a strategy call → 2 · We scope it in writing → 3 · You decide.</span></div>
+<section class="tight"><div class="container"><div class="facts">
+<span><b>What we do:</b> design, hosting, cloud, AI, compliance, talent.</span>
+<span><b>Who it's for:</b> small businesses, growing stores, technical teams in Canada.</span>
+<span><b>What you get:</b> a fast site you own, hosting that is watched, people you can call.</span>
+<span><b>Next:</b> contact us → we scope it in writing → you decide.</span>
 </div></div></section>
 
 <section><div class="container">
-<div class="section-head"><p class="eyebrow">What do you need first?</p><h2>Start where your problem is.</h2><p class="lead">Three doors, one team behind all of them. Pick the one that matches your problem — you can add the others later.</p></div>
+<div class="section-head"><p class="eyebrow">Start where your problem is</p><h2>Three doors, one team behind all of them.</h2></div>
 <div class="grid3">
-<div class="card silo"><span class="tag">New website, store or app</span><h3>I need a website that works</h3><p class="plain">A website, store or app your customers love — and you can edit yourself.</p><a href={`${BASE}/services/website-services`}>Website Services →</a></div>
-<div class="card silo"><span class="tag">Hosting that just works</span><h3>My site must stay up</h3><p class="plain">Managed WordPress, VPS and dedicated — set up, secured, backed up and watched.</p><a href={`${BASE}/services/managed-hosting`}>Managed Hosting →</a></div>
-<div class="card silo"><span class="tag">Cloud, compliance or talent</span><h3>We need specialists</h3><p class="plain">Cloud, containers, AI, compliance readiness, consultancy and staffing — by specialists.</p><a href={`${BASE}/services/professional-services`}>Professional Services →</a></div>
+<div class="card silo hub-card hub-web"><span class="tag">Website Services</span><h3>I need a website that works</h3><p class="plain">A website, store or app your customers love — and you can edit yourself.</p><a href={`${BASE}/services/website-services`}>Website Services →</a></div>
+<div class="card silo hub-card hub-host"><span class="tag">Managed Hosting</span><h3>My site must stay up</h3><p class="plain">Managed WordPress, VPS and dedicated — set up, secured, backed up and watched.</p><a href={`${BASE}/services/managed-hosting`}>Managed Hosting →</a></div>
+<div class="card silo hub-card hub-pro"><span class="tag">Professional Services</span><h3>We need specialists</h3><p class="plain">Cloud, containers, AI, compliance readiness, consultancy and staffing — by specialists.</p><a href={`${BASE}/services/professional-services`}>Professional Services →</a></div>
 </div></div></section>
 
 <section style="background:var(--bg)"><div class="container">
-<div class="section-head"><p class="eyebrow">Seven practices</p><h2>Seven practices. Each one stands alone.</h2><p class="lead">Design is one of seven — not the headline, not a footnote. Every practice has its own page, its own services, and its own proof line.</p></div>
+<div class="section-head"><p class="eyebrow">Seven practices</p><h2>Seven practices. Each one stands alone.</h2><p class="lead">Design is one of seven — not the headline, not a footnote.</p></div>
 <div class="grid3">{PRACTICES.map(p => <div class="card silo"><h3>{p.name}</h3><p class="plain">{p.short}</p><p class="tech">{p.proof}</p><a href={BASE + "/practices/" + p.slug}>Explore {p.name} →</a></div>)}</div>
 </div></section>
 
-<section style="background:#fff;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)"><div class="container">
-<div class="section-head"><p class="eyebrow">02 / Managed hosting</p><h2>Hosting, priced like a spec sheet. <em>Read it in 30 seconds.</em></h2><p class="lead">Every hosting plan, same layout: what you get, what it is best for, what it costs. No fixed price list — each plan is a custom quote, scoped to your traffic.</p></div>
-<div class="plans">
-<div class="plan"><header><span class="tag">Small &amp; quiet sites</span><h3>Managed WordPress</h3></header><p class="price">Custom quote <small>/mo</small></p><ul class="spec"><li><span>Platform</span><b>WordPress · LiteSpeed</b></li><li><span>Backups</span><b>Daily · self-restore</b></li><li><span>Security</span><b>SSL · WAF · malware scan</b></li><li><span>Updates</span><b>Tested in staging first</b></li></ul><footer><a href={`${BASE}/services/managed-wordpress`}>View details →</a></footer></div>
-<div class="plan hot"><header><span class="tag">Most sites that outgrow shared</span><h3>Managed VPS</h3></header><p class="price">Custom quote <small>/mo</small></p><ul class="spec"><li><span>Resources</span><b>Dedicated CPU · RAM · NVMe</b></li><li><span>Neighbours</span><b>None can slow you down</b></li><li><span>Backups</span><b>Daily · staging included</b></li><li><span>Scaling</span><b>Plan change, not rebuild</b></li></ul><footer><a href={`${BASE}/services/vps-hosting`}>View details →</a></footer></div>
-<div class="plan"><header><span class="tag">Busy stores &amp; large sites</span><h3>Dedicated Server</h3></header><p class="price">Custom quote <small>/mo</small></p><ul class="spec"><li><span>Hardware</span><b>Whole server · yours alone</b></li><li><span>Storage</span><b>Hardware RAID</b></li><li><span>Backups</span><b>Daily · off-site options</b></li><li><span>Support</span><b>Managed end to end</b></li></ul><footer><a href={`${BASE}/services/dedicated-hosting`}>View details →</a></footer></div>
-</div>
-<p style="margin-top:24px"><strong>Right pick, by user type:</strong> quiet WordPress site → Managed WordPress. Several sites, or slow at busy times → Managed VPS. Downtime costs real money → Dedicated. Not sure? Tell us your traffic — we check first and say so honestly.</p>
-</div></section>
-
 <section><div class="container">
-<div class="section-head"><p class="eyebrow">Three different things</p><h2>Ongoing services, projects, and staffing are not the same thing.</h2><p class="lead">Providers blur them together, and it makes proposals hard to compare. They are billed differently, they start and stop differently, and you can buy any one without the others.</p></div>
-<div class="grid3">
-<div class="card"><h3>Ongoing services</h3><p>Monthly. Somebody is responsible on a Tuesday afternoon when nothing is on fire — hosting, monitoring, updates, backups.</p></div>
-<div class="card"><h3>One-off projects</h3><p>A beginning and an end. A website, a migration, a landing zone, a compliance review. Scoped and priced as a project.</p></div>
-<div class="card"><h3>Staffing</h3><p>A person, for a fixed period. A designer, a developer, a cloud engineer — embedded in your team, then gone, with documentation left behind.</p></div>
+<div class="section-head"><p class="eyebrow">Managed hosting</p><h2>Hosting, priced like a spec sheet.</h2><p class="lead">Same layout for every plan: what you get, what it is best for, what it costs. Custom quote, scoped to your traffic.</p></div>
+<div class="plans">
+<div class="plan"><header><span class="tag">Small &amp; quiet sites</span><h3>Managed WordPress</h3></header><p class="price">Custom quote <small>/mo</small></p><ul class="spec"><li><span>Platform</span><b>WordPress · LiteSpeed</b></li><li><span>Backups</span><b>Daily · self-restore</b></li><li><span>Security</span><b>SSL · WAF · malware scan</b></li></ul><footer><a href={`${BASE}/services/managed-wordpress`}>View details →</a></footer></div>
+<div class="plan hot"><header><span class="tag">Most sites that outgrow shared</span><h3>Managed VPS</h3></header><p class="price">Custom quote <small>/mo</small></p><ul class="spec"><li><span>Resources</span><b>Dedicated CPU · RAM · NVMe</b></li><li><span>Neighbours</span><b>None can slow you down</b></li><li><span>Backups</span><b>Daily · staging included</b></li></ul><footer><a href={`${BASE}/services/vps-hosting`}>View details →</a></footer></div>
+<div class="plan"><header><span class="tag">Busy stores &amp; large sites</span><h3>Dedicated Server</h3></header><p class="price">Custom quote <small>/mo</small></p><ul class="spec"><li><span>Hardware</span><b>Whole server · yours alone</b></li><li><span>Storage</span><b>Hardware RAID</b></li><li><span>Backups</span><b>Daily · off-site options</b></li></ul><footer><a href={`${BASE}/services/dedicated-hosting`}>View details →</a></footer></div>
 </div>
-<p style="margin-top:20px"><strong>We scope before we quote.</strong> A number produced without seeing your business is a guess you would end up budgeting against.</p>
+<p style="margin-top:24px"><strong>Right pick:</strong> quiet WordPress site → Managed WordPress. Several sites, or slow at busy times → Managed VPS. Downtime costs real money → Dedicated. Not sure? Tell us your traffic — we check first and say so honestly.</p>
 </div></section>
 
 <section style="background:var(--bg)"><div class="container">
-<div class="section-head"><p class="eyebrow">How it works</p><h2>From first call to launch in 4–6 weeks.</h2><p class="lead">Five steps. At every step you know what you do, and what you get.</p></div>
+<div class="section-head"><p class="eyebrow">How it works</p><h2>From first call to launch in 4–6 weeks.</h2></div>
 <div class="steps">
-<div class="step"><b>01</b><h3>Discover</h3><p>Week 1 — we learn your business, your customers and your goals.</p><div class="you"><b>You do:</b> one 45-min call + a short brief.</div></div>
+<div class="step"><b>01</b><h3>Discover</h3><p>Week 1 — we learn your business and your goals.</p><div class="you"><b>You do:</b> one 45-min call + a short brief.</div></div>
 <div class="step"><b>02</b><h3>Design</h3><p>Weeks 2–3 — wireframes, then visual design. You see it on desktop and phone.</p><div class="you"><b>You do:</b> 2 rounds of feedback.</div></div>
-<div class="step"><b>03</b><h3>Build</h3><p>Weeks 3–5 — design becomes a fast, working site. SEO, speed and accessibility built in.</p><div class="you"><b>You do:</b> approve content.</div></div>
-<div class="step"><b>04</b><h3>Launch</h3><p>Week 5–6 — every page tested, hosting and analytics set up, then live.</p><div class="you"><b>You do:</b> nothing — we handle it.</div></div>
-<div class="step"><b>05</b><h3>Care</h3><p>Ongoing — hosting, updates, backups and small changes, every month.</p><div class="you"><b>You do:</b> run your business.</div></div>
+<div class="step"><b>03</b><h3>Build</h3><p>Weeks 3–5 — design becomes a fast, working site.</p><div class="you"><b>You do:</b> approve content.</div></div>
+<div class="step"><b>04</b><h3>Launch</h3><p>Week 5–6 — every page tested, then live.</p><div class="you"><b>You do:</b> nothing — we handle it.</div></div>
+<div class="step"><b>05</b><h3>Care</h3><p>Ongoing — hosting, updates, backups and small changes.</p><div class="you"><b>You do:</b> run your business.</div></div>
 </div>
 <p style="margin-top:20px"><a href={`${BASE}/process`}>See the full process →</a></p></div></section>
 
 <section><div class="container">
-<div class="section-head"><p class="eyebrow">What it costs</p><h2>Custom quote — and honest about what changes it.</h2><p class="lead">We don't publish a price we haven't settled. These are the things that move the quote — tell us your budget, and we'll tell you what fits, in writing, before you commit.</p></div>
-<div class="cost">
-<div class="table-scroll"><table>
-<tr><th>What changes the price</th><th>How</th></tr>
-<tr><td>Number of pages</td><td>More pages, more design and content work</td></tr>
-<tr><td>Online store</td><td>Products, payments, shipping and tax setup</td></tr>
-<tr><td>Mobile app</td><td>iOS + Android publishing, logins, payments</td></tr>
-<tr><td>Hosting &amp; care</td><td>Managed hosting, updates, backups, small changes</td></tr>
-<tr><td>Cloud / compliance</td><td>Scoped per project — quoted after a short review</td></tr>
-</table></div>
-<div class="note blue"><strong>Your budget is the starting point, not a secret.</strong><br/>Put your budget in the form — Under $5k, $5–15k, $15–50k, $50k+, or Not sure — and we'll reply within 1 business day with what fits. If we can't help, we'll say so and point you to what can.</div>
-</div></div></section>
-
-<section style="background:var(--bg)"><div class="container">
-<div class="section-head"><p class="eyebrow">Work</p><h2>Example scopes — what a project like yours looks like.</h2><p class="lead">Detailed, typical projects of each type — problem, what was built, stack, timeline and outcome. They are example scopes, not named client projects. Real client stories land here as they ship, with real names and real numbers.</p></div>
+<div class="section-head"><p class="eyebrow">Work</p><h2>Example scopes — what a project like yours looks like.</h2><p class="lead">Detailed, typical projects of each type. Example scopes, not named client projects.</p></div>
 <div class="grid3">
-<div class="work-card"><div class="art"><span class="pill">Example scope · Website</span><b>Small business website</b></div><div class="body"><p><strong>Problem:</strong> a service business that lived on phone calls, with a website that did not explain what it did or let anyone book.</p><a href={`${BASE}/work/small-business-website`}>Read the full example scope →</a></div></div>
-<div class="work-card"><div class="art" style="background:linear-gradient(135deg,#0E3A5C,var(--accent))"><span class="pill">Example scope · Store</span><b>Online store, rebuilt</b></div><div class="body"><p><strong>Problem:</strong> a small shop whose checkout was losing sales on phones.</p><a href={`${BASE}/work/online-store`}>Read the full example scope →</a></div></div>
-<div class="work-card"><div class="art" style="background:linear-gradient(135deg,#2A1B6E,#14305E)"><span class="pill">Example scope · Hosting</span><b>Managed WordPress migration</b></div><div class="body"><p><strong>Problem:</strong> a WordPress site that kept breaking, with backups that had never been tested.</p><a href={`${BASE}/work/wordpress-migration`}>Read the full example scope →</a></div></div>
+<div class="work-card"><div class="art"><span class="pill">Example scope · Website</span><b>Small business website</b></div><div class="body"><p>A service business that lived on phone calls, with a website that did not explain what it did or let anyone book.</p><a href={`${BASE}/work/small-business-website`}>Read the full example scope →</a></div></div>
+<div class="work-card"><div class="art"><span class="pill">Example scope · Store</span><b>Online store, rebuilt</b></div><div class="body"><p>A small shop whose checkout was losing sales on phones.</p><a href={`${BASE}/work/online-store`}>Read the full example scope →</a></div></div>
+<div class="work-card"><div class="art"><span class="pill">Example scope · Hosting</span><b>Managed WordPress migration</b></div><div class="body"><p>A WordPress site that kept breaking, with backups that had never been tested.</p><a href={`${BASE}/work/wordpress-migration`}>Read the full example scope →</a></div></div>
 </div>
-<div class="section-head" style="margin-top:44px"><p class="eyebrow">Demo websites</p><h2 style="font-size:32px">Click through a real demo.</h2><p class="lead">Three complete demo sites — a café, a store, a dental clinic — built the way we build for clients. Demo — example scope, not a client.</p></div>
+<div class="section-head" style="margin-top:44px"><p class="eyebrow">Demo websites</p><h2 style="font-size:28px">Click through a real demo.</h2><p class="lead">Three complete demo sites — a café, a store, a dental clinic. Demo — example, not a client.</p></div>
 <div class="grid3">{demos.map(d => <div class="work-card"><div class="art"><span class="pill">Demo · {d.kind}</span><b>{d.name}</b></div><div class="body"><p>{d.desc}</p><a href={`${BASE}/demos/${d.slug}`}>Open the demo →</a></div></div>)}</div>
 <p style="margin-top:20px"><a href={`${BASE}/work`}>See all example scopes →</a></p></div></section>
 
-<section><div class="container">
-<div class="section-head"><p class="eyebrow">What we believe</p><h2>One team, start to finish.</h2></div>
-<div class="why">
-<div class="card"><h3>No hand-offs</h3><p>Design, build, hosting and care — one team, no messages lost between vendors. You talk to the people doing the work.</p></div>
-<div class="card"><h3>Fast by default</h3><p>Every site is built to load in under 1.5 seconds. Speed is a feature, not an add-on — and it is measured, not claimed.</p></div>
-<div class="card"><h3>You own everything</h3><p>Your domain, your site, your data, your cloud account. No lock-in, ever — your accounts, in your name.</p></div>
-</div>
+<section style="background:var(--bg)"><div class="container">
+<div class="section-head"><p class="eyebrow">Contact us</p><h2>{BRAND_NAME} — Based in Canada.</h2><p class="lead">Tell us your goal. We reply within 1 business day with a written scope and quote — before you commit to anything.</p></div>
+<p><strong>Email:</strong> not published yet. <strong>Phone:</strong> not published yet. <strong>Address:</strong> not published yet — both will be added here when confirmed.</p>
+<p><a class="btn" href={`${BASE}/contact`}>Contact us →</a></p>
 </div></section>
 
-<section style="background:var(--bg)"><div class="container faq"><div class="section-head"><p class="eyebrow">FAQ</p><h2>Before you ask.</h2></div>
+<section><div class="container faq"><div class="section-head"><p class="eyebrow">FAQ</p><h2>Before you ask.</h2></div>
 {faqs.map(f=><details><summary>{f[0]}</summary><p style="margin-top:10px">{f[1]}</p></details>)}
 </div></section>
 </Base>
