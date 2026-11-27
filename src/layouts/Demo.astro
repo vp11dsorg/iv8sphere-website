@@ -1,7 +1,7 @@
 ---
-import { BRAND_NAME, BASE, SITE_URL, FAVICON, OG_IMAGE } from '../site';
+import { BRAND_NAME, LEGAL_NAME, BASE, SITE_URL, FAVICON, OG_IMAGE } from '../site';
 const { title, seoTitle, description, name, tagline, accent, accent2, bg, ink, nav } = Astro.props;
-const pageTitle = seoTitle || title;
+const pageTitle = LEGAL_NAME;
 const url = new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', SITE_URL).toString();
 const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
 ---
@@ -31,9 +31,20 @@ const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:clip}
-  .demo-banner{background:#0B1F3A;color:#fff;font-size:13px;padding:8px 16px;text-align:center}
-  .demo-banner a{color:#7FD4FF;font-weight:700}
-  .demo-banner a:hover{color:#fff}
+  .demo-backbar{position:sticky;top:0;z-index:100;background:#0B1F3A;color:#fff;border-bottom:3px solid #00C2FF}
+  .demo-backbar .bar-in{max-width:1060px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px;line-height:1.4}
+  .demo-backbar a.back{color:#fff;font-weight:800;text-decoration:none;white-space:nowrap;background:#00C2FF;color:#04263A;padding:7px 14px;border-radius:999px}
+  .demo-backbar a.back:hover{filter:brightness(1.1)}
+  .demo-backbar .lbl{color:#C7D6EA;flex:1 1 220px;min-width:0}
+  .demo-backbar a.work{color:#7FD4FF;font-weight:700;white-space:nowrap}
+  .demo-backbar a.work:hover{color:#fff}
+  .demo-eyebrow{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  .demo-hero h1 em{font-style:italic;color:var(--accent)}
+  .demo-chips{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 0}
+  .demo-chips span{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700}
+  .demo-story h3{font-family:Georgia,serif;font-size:20px;margin:0 0 6px}
+  .demo-story p{margin:0 0 14px;color:#444}
+  @media (max-width:560px){.demo-backbar .lbl{flex-basis:100%;order:3}}
   .demo-wrap{max-width:1060px;margin:0 auto;padding:0 20px}
   .demo-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px;flex-wrap:wrap}
   .demo-head .dname{font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:-.02em}
@@ -71,7 +82,7 @@ const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
 </style>
 </head>
 <body>
-<div class="demo-banner">Demo website — example scope, not a client. Built by <a href={BASE + '/'}>{BRAND_NAME}</a>. <a href={BASE + '/work'}>See our work →</a></div>
+<div class="demo-backbar"><div class="bar-in"><a class="back" href="https://vp11dsorg.github.io/iv8sphere-website/">← Back to iv8Sphere</a><span class="lbl">iv8Sphere demo — this is an example website, not a real business.</span><a class="work" href={BASE + '/work'}>See our work →</a></div></div>
 <header class="demo-wrap demo-head">
 <span class="dname">{name}</span>
 <nav>{nav.map((n:any) => <a href={n.href}>{n.label}</a>)}</nav>
@@ -80,6 +91,7 @@ const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
 <footer class="demo-wrap demo-foot">
 <p><b>{name}</b> — {tagline}</p>
 <p>Demo website built by {BRAND_NAME} to show what a site like this looks like. The business, people, prices and hours on this page are examples, not real. <a href={BASE + '/contact'}>Want one like this? Contact us →</a></p>
+<p><a href="https://vp11dsorg.github.io/iv8sphere-website/">← Back to iv8Sphere</a> · <a href={BASE + '/work'}>See our work →</a> · <a href={BASE + '/contact'}>Want one like this? Contact us →</a></p>
 <p>© 2026 {BRAND_NAME}. Canada.</p>
 </footer>
 </body>
