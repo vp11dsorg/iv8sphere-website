@@ -1,0 +1,16 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SERVICES } from '../../../data/services';
+import { BASE } from '../../../site';
+const list = SERVICES.filter(s => s.group === 'Managed Hosting');
+---
+<Base title="Managed Hosting" description="Managed WordPress, VPS and dedicated hosting — set up, secured, backed up and watched.">
+<section><div class="container">
+<p class="breadcrumb"><a href={`${BASE}/services`}>Services</a> / Managed Hosting</p>
+<p class="eyebrow">Services · For sites that must stay up</p>
+<h1>Managed Hosting</h1>
+<p class="lead">Hosting that just works. Set up, secured, backed up and watched — you never touch a server. <strong>In plain English:</strong> your website lives on our watch, not yours. <strong>Technically:</strong> managed WordPress, VPS and dedicated servers with daily backups, SSL, security and monitoring.</p>
+<div class="grid3">{list.map(s => <div class="card silo"><h3>{s.title}</h3><p class="plain">{s.tagline}</p><p class="tech">{s.intro}</p><a href={`${BASE}/services/${s.slug}`}>Explore →</a></div>)}</div>
+<div class="note blue" style="margin-top:28px"><strong>Outgrowing shared hosting?</strong> That is the usual reason clients move to a managed VPS or dedicated server. Tell us your traffic and we'll size it — custom quote, no guesswork.</div>
+</div></section>
+</Base>
