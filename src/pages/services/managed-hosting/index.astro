@@ -1,16 +1,26 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import { SERVICES } from '../../../data/services';
 import { BASE } from '../../../site';
-const list = SERVICES.filter(s => s.group === 'Managed Hosting');
 ---
-<Base title="Managed Hosting" description="Managed WordPress, VPS and dedicated hosting — set up, secured, backed up and watched.">
+<Base title="Managed Hosting" description="Hosting that just works. Set up, secured, backed up and watched — you never touch a server. In plain English: your website lives on our watch, not you">
 <section><div class="container">
-<p class="breadcrumb"><a href={`${BASE}/services`}>Services</a> / Managed Hosting</p>
-<p class="eyebrow">Services · For sites that must stay up</p>
+<p class="breadcrumb"><a href={BASE + "/services"}>Services</a> / Managed Hosting</p>
+<p class="eyebrow">Services · Managed Hosting</p>
 <h1>Managed Hosting</h1>
-<p class="lead">Hosting that just works. Set up, secured, backed up and watched — you never touch a server. <strong>In plain English:</strong> your website lives on our watch, not yours. <strong>Technically:</strong> managed WordPress, VPS and dedicated servers with daily backups, SSL, security and monitoring.</p>
-<div class="grid3">{list.map(s => <div class="card silo"><h3>{s.title}</h3><p class="plain">{s.tagline}</p><p class="tech">{s.intro}</p><a href={`${BASE}/services/${s.slug}`}>Explore →</a></div>)}</div>
-<div class="note blue" style="margin-top:28px"><strong>Outgrowing shared hosting?</strong> That is the usual reason clients move to a managed VPS or dedicated server. Tell us your traffic and we'll size it — custom quote, no guesswork.</div>
+<p class="lead">Hosting that just works. Set up, secured, backed up and watched — you never touch a server. In plain English: your website lives on our watch, not yours. Technically: managed WordPress, VPS and dedicated servers with daily backups, SSL, security and monitoring.</p>
+<p style="max-width:760px"><strong>What am I selling here?</strong> If your site must stay up, stay secure and stay fast, start here. If you need a new website as well, start with Website Services and add hosting. If you need cloud or compliance, start with Professional Services.</p>
+<div class="grid3"><div class="card silo"><h3>Managed WordPress Hosting</h3><p class="plain">WordPress, managed for you.</p><p class="tech">WordPress runs 38.</p><a href={BASE + "/services/managed-wordpress"}>Explore Managed WordPress Hosting →</a></div>
+<div class="card silo"><h3>Managed VPS Hosting</h3><p class="plain">Your own server, without the sysadmin.</p><p class="tech">A VPS — a virtual private server — is your own slice of a server, with your own resources, so a neighbour's busy site cannot slow yours down.</p><a href={BASE + "/services/vps-hosting"}>Explore Managed VPS Hosting →</a></div>
+<div class="card silo"><h3>Dedicated Server Hosting</h3><p class="plain">A whole server, just for you.</p><p class="tech">A dedicated server is exactly that: one physical server, used by you alone.</p><a href={BASE + "/services/dedicated-hosting"}>Explore Dedicated Server Hosting →</a></div></div>
+<h2 style="margin-top:40px">How to choose</h2>
+<p style="max-width:760px">Start with the service that matches your problem, not with the whole list. Every service below has its own page — what it is, who it is for, what you get, how it works, what it costs, and the questions people ask before they buy. If you are not sure which one, book a strategy call and we will point you to the right one before you commit to anything.</p>
+<h2 style="margin-top:40px">What it costs</h2>
+<p style="max-width:760px">Every project is quoted, and we scope before we quote. Tell us your budget and we tell you what fits, in writing, before you commit. No fixed price list, no hidden fees.</p>
+<h2 style="margin-top:40px">Before you ask</h2>
+<div class="faq"><details><summary>What does managed mean, exactly?</summary><p style="margin-top:10px">Hosting plus the work: updates, backups, security and monitoring, done by us. Unmanaged hosting gives you a server and leaves the work to you.</p></details>
+<details><summary>Will my site go down during migration?</summary><p style="margin-top:10px">No, if it is done properly. We copy and test first, then switch the domain. Your old site stays live until the new one is proven.</p></details>
+<details><summary>When do I need a VPS instead of managed WordPress?</summary><p style="margin-top:10px">When your site is slow at busy times, when you have several sites, or when shared limits keep stopping you. We check your traffic first and tell you honestly.</p></details>
+<details><summary>Can I leave?</summary><p style="margin-top:10px">Yes. Your site, domain and data are yours, with a full export. No lock-in.</p></details></div>
+<p style="margin-top:32px"><a class="btn" href={BASE + "/contact"}>Book a strategy call →</a></p>
 </div></section>
 </Base>
