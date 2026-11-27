@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/services</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/services/website-services</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/services/managed-hosting</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/services/professional-services</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/work</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/process</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/about</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/whitepapers</loc></url>
-<url><loc>https://vp11dsorg.github.io/iv8Spheresphere-website/contact</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/about</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/contact</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices/ai</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices/cloud-containers</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices/compliance-readiness</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices/consultancy</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices/managed-hosting</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices/staffing-talent</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/practices/web-design-experience</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/process</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/ai-consulting</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/cloud-infrastructure</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/compliance-readiness</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/consultancy</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/dedicated-hosting</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/ecommerce</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/kubernetes</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/managed-containers</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/managed-hosting</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/managed-wordpress</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/no-code-app-builder</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/openshift</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/professional-services</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/staffing</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/talent-marketplace</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/ux-design</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/vps-hosting</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/web-design</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/website-builder</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/services/website-services</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/whitepapers/compliance-readiness-explained</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/whitepapers</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/whitepapers/managed-hosting-tested</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/whitepapers/website-speed-measured</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/work</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/work/online-store</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/work/small-business-website</loc></url>
+  <url><loc>https://vp11dsorg.github.io/iv8sphere-website/work/wordpress-migration</loc></url>
 </urlset>
