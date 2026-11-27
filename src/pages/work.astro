@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { BRAND_NAME, BASE } from '../site';
+---
+<Base title="Work" description={`Sample builds from ${BRAND_NAME} — website redesigns, online stores and apps. First client stories coming.`}>
+<section><div class="container">
+<p class="eyebrow">Work</p>
+<h1>Sample builds — first client stories coming.</h1>
+<p class="lead">We are a new team shipping our first client work. These are sample builds from our team, showing what we build and how. They are not client results — real client stories land here as they ship, with real names and real numbers.</p>
+<div class="honest" style="margin-bottom:28px"><strong>Honest labelling:</strong> every card below is marked “Sample build”. We do not invent clients, results or testimonials.</div>
+<div class="grid3">
+<div class="work-card"><div class="art"><span class="pill">Sample build · Website</span><b>Clinic website, redesigned</b></div><div class="body"><p><strong>Problem:</strong> a slow, confusing site that lost enquiries. <strong>What we built:</strong> new design, clearer services, easy booking, faster hosting. <strong>Stack:</strong> WordPress, custom design. <strong>Target:</strong> under 1.5s load, phone-first.</p></div></div>
+<div class="work-card"><div class="art" style="background:linear-gradient(135deg,#0E3A5C,var(--accent))"><span class="pill">Sample build · Store</span><b>Online store, rebuilt</b></div><div class="body"><p><strong>Problem:</strong> checkout drop-off on a Shopify store. <strong>What we built:</strong> rebuild, faster pages, fixed checkout. <strong>Stack:</strong> Shopify. <strong>Target:</strong> fewer drop-offs, faster pages.</p></div></div>
+<div class="work-card"><div class="art" style="background:linear-gradient(135deg,#2A1B6E,#14305E)"><span class="pill">Sample build · Service site</span><b>Service business site</b></div><div class="body"><p><strong>Problem:</strong> a 4-second site nobody called from. <strong>What we built:</strong> new site, clear call buttons, fast hosting. <strong>Stack:</strong> custom design. <strong>Target:</strong> under 1.5s load, calls in one tap.</p></div></div>
+<div class="work-card"><div class="art" style="background:linear-gradient(135deg,var(--navy2),var(--navy))"><span class="pill">Your project</span><b>Your project here</b></div><div class="body"><p>This slot is waiting for your project. Start a project and it could be the next case study — with your real name and real numbers.</p><a href={`${BASE}/contact`}>Start a Project →</a></div></div>
+<div class="work-card"><div class="art" style="background:linear-gradient(135deg,var(--navy2),var(--navy))"><span class="pill">Your project</span><b>Your project here</b></div><div class="body"><p>This slot is waiting for your project.</p><a href={`${BASE}/contact`}>Start a Project →</a></div></div>
+<div class="work-card"><div class="art" style="background:linear-gradient(135deg,var(--navy2),var(--navy))"><span class="pill">Your project</span><b>Your project here</b></div><div class="body"><p>This slot is waiting for your project.</p><a href={`${BASE}/contact`}>Start a Project →</a></div></div>
+</div></div></section>
+</Base>
