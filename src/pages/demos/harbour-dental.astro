@@ -1,0 +1,50 @@
+---
+import Demo from '../../layouts/Demo.astro';
+const nav=[{href:'#services',label:'Services'},{href:'#team',label:'Team'},{href:'#book',label:'Book'}];
+---
+<Demo title="Harbour Dental" seoTitle="Harbour Dental — Demo Dental Clinic Site | iv8Sphere" description="Demo clinic website: services, prices, team and booking. A service-business site built by iv8Sphere — example scope, not a client."
+ name="Harbour Dental" tagline="Calm, honest dentistry in Halifax." accent="#0E7C86" accent2="#2A5C8A" bg="#F2F7F8" ink="#16303A" nav={nav}>
+<section class="demo-hero"><div class="demo-wrap">
+<h1>Dentistry without the dread. Clear prices, honest advice.</h1>
+<p class="lead">Harbour Dental is a small clinic in Halifax. We tell you what you need, what it costs, and what can wait — before any work starts. New patients welcome, no referral needed.</p>
+<a class="cta" href="#book">Book an appointment →</a>
+</div></section>
+<section class="demo-sec" id="services"><div class="demo-wrap">
+<h2>Services &amp; prices</h2>
+<p class="sub">Prices in Canadian dollars. We bill your insurance directly, and tell you the cost before we start.</p>
+<div class="demo-two">
+<div class="demo-box"><h3>Everyday care</h3><ul class="demo-list">
+<li><span><b>Checkup &amp; cleaning</b></span><span class="pr">$149</span></li>
+<li><span><b>Fillings</b></span><span class="pr">from $180</span></li>
+<li><span><b>Emergency visit</b></span><span class="pr">$120</span></li>
+<li><span><b>X-rays</b></span><span class="pr">included in checkup</span></li>
+</ul></div>
+<div class="demo-box"><h3>Smile &amp; straightening</h3><ul class="demo-list">
+<li><span><b>Whitening</b></span><span class="pr">$299</span></li>
+<li><span><b>Invisalign consult</b></span><span class="pr">Free</span></li>
+<li><span><b>Night guard</b></span><span class="pr">$350</span></li>
+<li><span><b>Sports mouthguard</b></span><span class="pr">$120</span></li>
+</ul></div>
+</div>
+</div></section>
+<section class="demo-sec" id="team" style="background:#fff;border-top:1px solid #e2ddd3;border-bottom:1px solid #e2ddd3"><div class="demo-wrap">
+<h2>Meet the team</h2>
+<p class="sub">Small team, same faces every visit. The people on this page are examples, not real clinicians.</p>
+<div class="demo-grid">
+<div class="demo-card"><h3>Dr. Amara Chen</h3><p>Principal dentist. 12 years in practice. General and cosmetic dentistry, and the person who explains everything twice if you ask.</p></div>
+<div class="demo-card"><h3>Dr. Lucas Moreau</h3><p>Associate dentist. Emergency care and root canals. Known for getting nervous patients through their first visit.</p></div>
+<div class="demo-card"><h3>Sofia Reyes, RDH</h3><p>Registered dental hygienist. Cleanings, gum care and the person who will actually tell you how to floss properly.</p></div>
+</div>
+</div></section>
+<section class="demo-sec" id="book"><div class="demo-wrap" style="max-width:640px">
+<h2>Book an appointment</h2>
+<p class="sub">Monday–Friday 8am–5pm, Saturday 9am–1pm. Emergencies seen the same day when possible.</p>
+<form class="demo-form" onsubmit="event.preventDefault();document.getElementById('booked').style.display='block';">
+<label for="b-name">Name</label><input id="b-name" type="text" required />
+<label for="b-service">Service</label><select id="b-service"><option>Checkup &amp; cleaning</option><option>Emergency visit</option><option>Whitening</option><option>Invisalign consult (free)</option><option>Something else</option></select>
+<label for="b-date">Preferred date</label><input id="b-date" type="date" required />
+<button type="submit">Request an appointment</button>
+</form>
+<p id="booked" style="display:none;margin-top:16px;font-weight:700;color:var(--accent)">Thanks — your request is noted. This is a demo form: it does not send anything.</p>
+</div></section>
+</Demo>
