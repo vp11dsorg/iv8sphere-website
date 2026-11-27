@@ -7,6 +7,9 @@ const faqs=[
  ['How long does it take?','Most websites: 4–6 weeks from first call to launch.'],
  ['Where are you based?','In Canada.'],
  ['Do you certify us for HIPAA or PCI DSS?','No — and no vendor can. Your auditor certifies you. We build the systems and prepare the evidence so you can pass.'],
+ ['What does a website cost?','We have no starting price yet and no fixed price list. Every project is quoted after we scope it in writing — tell us your budget and we tell you what fits.'],
+ ['Can I edit the site myself?','Yes. We build sites you can edit yourself, show you how, and stay on call for the rest.'],
+ ['Who will I actually work with?','The people doing the work — a designer, a developer and a strategist on a website project. No account managers in between.'],
 ];
 const demos=[
  {slug:'maple-main',name:'Maple & Main Café',kind:'Small business website',desc:'Menu, hours, bookings — a café site that gets people through the door.'},
@@ -17,12 +20,12 @@ const demos=[
 <Base>
 <section class="hero"><div class="container hero-grid">
 <div>
-<span class="kicker-chip">Managed-services company · Based in Canada</span>
-<h1 style="margin-top:20px">Your technology, <span class="grad">designed, built and run</span> by one team.</h1>
-<p class="sub">We design, build, run and staff your technology — so your business keeps working, without you managing the technology.</p>
+<span class="kicker-chip">Web design · Managed hosting · Cloud — Based in Canada</span>
+<h1 style="margin-top:20px">Your business has grown. <em>Your website should show it.</em></h1>
+<p class="sub">We design, build, run and staff your technology — one team, start to finish — so your business keeps working without you managing the technology.</p>
 <p class="tech">For non-technical owners: we do the technology, you run your business. For technical teams: the detail is on every service page.</p>
 <div class="cta-row"><a class="btn" href={`${BASE}/contact`}>Contact us →</a><a class="btn ghost" href={`${BASE}/services`}>See all services</a></div>
-<p class="micro"><b>10–20 specialists</b> · 7 practices · <b>Custom quote</b> — scoped before quoting</p>
+<div class="trust-chips"><span>10–20 specialists</span><span>Based in Canada</span><span>One team start to finish</span><span>No lock-in</span></div>
 </div>
 <div class="specsheet" aria-label="What fits, at a glance">
 <header><b>What fits, at a glance</b><span>Spec sheet</span></header>
@@ -42,7 +45,7 @@ const demos=[
 </div></div></section>
 
 <section><div class="container">
-<div class="section-head"><p class="eyebrow">Start where your problem is</p><h2>Three doors, one team behind all of them.</h2></div>
+<div class="section-head"><p class="eyebrow">Start where your problem is</p><h2>Three doors, <em>one team</em> behind all of them.</h2></div>
 <div class="grid3">
 <div class="card silo hub-card hub-web"><span class="tag">Website Services</span><h3>I need a website that works</h3><p class="plain">A website, store or app your customers love — and you can edit yourself.</p><a href={`${BASE}/services/website-services`}>Website Services →</a></div>
 <div class="card silo hub-card hub-host"><span class="tag">Managed Hosting</span><h3>My site must stay up</h3><p class="plain">Managed WordPress, VPS and dedicated — set up, secured, backed up and watched.</p><a href={`${BASE}/services/managed-hosting`}>Managed Hosting →</a></div>
@@ -50,7 +53,7 @@ const demos=[
 </div></div></section>
 
 <section style="background:var(--bg)"><div class="container">
-<div class="section-head"><p class="eyebrow">Seven practices</p><h2>Seven practices. Each one stands alone.</h2><p class="lead">Design is one of seven — not the headline, not a footnote.</p></div>
+<div class="section-head"><p class="eyebrow">Seven practices</p><h2>Good design is <em>just the beginning.</em></h2><p class="lead">Design is one of seven practices — not the headline, not a footnote. Each one stands alone.</p></div>
 <div class="grid3">{PRACTICES.map(p => <div class="card silo"><h3>{p.name}</h3><p class="plain">{p.short}</p><p class="tech">{p.proof}</p><a href={BASE + "/practices/" + p.slug}>Explore {p.name} →</a></div>)}</div>
 </div></section>
 
@@ -65,7 +68,7 @@ const demos=[
 </div></section>
 
 <section style="background:var(--bg)"><div class="container">
-<div class="section-head"><p class="eyebrow">How it works</p><h2>From first call to launch in 4–6 weeks.</h2></div>
+<div class="section-head"><p class="eyebrow">A clear, collaborative process</p><h2>From idea to <em>a website you're proud to share.</em></h2></div>
 <div class="steps">
 <div class="step"><b>01</b><h3>Discover</h3><p>Week 1 — we learn your business and your goals.</p><div class="you"><b>You do:</b> one 45-min call + a short brief.</div></div>
 <div class="step"><b>02</b><h3>Design</h3><p>Weeks 2–3 — wireframes, then visual design. You see it on desktop and phone.</p><div class="you"><b>You do:</b> 2 rounds of feedback.</div></div>
@@ -76,7 +79,7 @@ const demos=[
 <p style="margin-top:20px"><a href={`${BASE}/process`}>See the full process →</a></p></div></section>
 
 <section><div class="container">
-<div class="section-head"><p class="eyebrow">Work</p><h2>Example scopes — what a project like yours looks like.</h2><p class="lead">Detailed, typical projects of each type. Example scopes, not named client projects.</p></div>
+<div class="section-head"><p class="eyebrow">Selected work</p><h2>A little less talking. <em>A lot more showing.</em></h2><p class="lead">Detailed, typical projects of each type. Example scopes, not named client projects.</p></div>
 <div class="grid3">
 <div class="work-card"><div class="art"><span class="pill">Example scope · Website</span><b>Small business website</b></div><div class="body"><p>A service business that lived on phone calls, with a website that did not explain what it did or let anyone book.</p><a href={`${BASE}/work/small-business-website`}>Read the full example scope →</a></div></div>
 <div class="work-card"><div class="art"><span class="pill">Example scope · Store</span><b>Online store, rebuilt</b></div><div class="body"><p>A small shop whose checkout was losing sales on phones.</p><a href={`${BASE}/work/online-store`}>Read the full example scope →</a></div></div>
@@ -86,13 +89,19 @@ const demos=[
 <div class="grid3">{demos.map(d => <div class="work-card"><div class="art"><span class="pill">Demo · {d.kind}</span><b>{d.name}</b></div><div class="body"><p>{d.desc}</p><a href={`${BASE}/demos/${d.slug}`}>Open the demo →</a></div></div>)}</div>
 <p style="margin-top:20px"><a href={`${BASE}/work`}>See all example scopes →</a></p></div></section>
 
+<section><div class="container">
+<div class="section-head"><p class="eyebrow">The humans behind the pixels</p><h2>You talk to <em>the people doing the work.</em></h2>
+<p class="lead">A small, senior team of 10–20 specialists in Canada — designers, developers, cloud engineers, compliance specialists and recruiters. No account managers passing messages along, no being handed from person to person. The same people from your first call to launch, and the same people you call afterwards.</p></div>
+<p><a class="btn ghost" href={BASE + "/about"}>Meet the team →</a></p>
+</div></section>
+
 <section style="background:var(--bg)"><div class="container">
 <div class="section-head"><p class="eyebrow">Contact us</p><h2>{BRAND_NAME} — Based in Canada.</h2><p class="lead">Tell us your goal. We reply within 1 business day with a written scope and quote — before you commit to anything.</p></div>
 <p><strong>Email:</strong> not published yet. <strong>Phone:</strong> not published yet. <strong>Address:</strong> not published yet — both will be added here when confirmed.</p>
 <p><a class="btn" href={`${BASE}/contact`}>Contact us →</a></p>
 </div></section>
 
-<section><div class="container faq"><div class="section-head"><p class="eyebrow">FAQ</p><h2>Before you ask.</h2></div>
+<section><div class="container faq"><div class="section-head"><p class="eyebrow">The good-to-know stuff</p><h2>A few things <em>you might be wondering.</em></h2></div>
 {faqs.map(f=><details><summary>{f[0]}</summary><p style="margin-top:10px">{f[1]}</p></details>)}
 </div></section>
 </Base>
