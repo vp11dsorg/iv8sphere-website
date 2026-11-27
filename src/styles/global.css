@@ -72,6 +72,7 @@ header.site{position:sticky;top:0;background:rgba(250,247,242,.97);backdrop-filt
 .nav nav a{text-decoration:none;font-weight:600;color:var(--ink);font-size:15px;white-space:nowrap}
 .nav nav a:hover{color:var(--accent2)}
 .menu-btn{display:none;margin-left:auto;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:9px 13px;font-size:18px;cursor:pointer;color:var(--ink);flex:0 0 auto}
+.cta-menu{display:none}
 /* hero */
 .hero{position:relative;overflow:hidden;background:var(--paper);color:var(--ink);padding:56px 0 48px;border-bottom:2px solid var(--ink)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
@@ -253,7 +254,16 @@ form button{margin-top:20px}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .foot{grid-template-columns:1fr 1fr}
   .nav nav{display:none}
-  .nav nav.open{display:flex;position:absolute;top:72px;left:0;right:0;background:var(--paper);flex-direction:column;padding:18px 20px;border-bottom:2px solid var(--ink);z-index:60;gap:16px;margin-left:0}
+  /* Mobile menu — everything left-justified on one edge, full-width rows.
+     Root cause of the old bug: the desktop rule sets align-items:center on
+     .nav nav, and the mobile column layout inherited it, so the bare links
+     (Work / Process / About) shrank to content width and sat centred, while
+     Services and the drop-down links were left-aligned. Stretch + block rows
+     puts every item on the same left edge with the same vertical rhythm. */
+  .nav nav.open{display:flex;position:absolute;top:72px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:8px 20px 20px;border-bottom:2px solid var(--ink);z-index:60;margin-left:0}
+  .nav nav.open>a:not(.cta-menu){display:block;width:100%;padding:12px 0;text-align:left}
+  .nav nav.open .nav-drop summary{padding:12px 0}
+  .nav nav.open .cta-menu{display:block;width:100%;margin-top:12px;text-align:center}
   .nav .cta-header{display:none}
   .menu-btn{display:block}
   .cost{grid-template-columns:minmax(0,1fr)}
@@ -307,8 +317,12 @@ form button{margin-top:20px}
 .brand .mark{height:38px;width:38px;flex:0 0 auto}
 @media(max-width:900px){
   .nav-drop{margin-left:0;width:100%}
-  .nav-drop .drop-panel{position:static;border:0;box-shadow:none;padding:2px 0 2px 14px;min-width:0}
-  .nav-drop .drop-panel a{padding:8px 12px}
+  /* Mobile drop-down: no floating white card (the desktop background/border/
+     radius were never reset, so it looked like a card inside the menu).
+     Sub-links sit on one indented edge, 16px in from the top-level edge,
+     with the same 12px/10px vertical rhythm as the rest of the menu. */
+  .nav-drop .drop-panel{position:static;background:transparent;border:0;border-left:3px solid var(--accent);border-radius:0;box-shadow:none;padding:4px 0 6px 16px;min-width:0}
+  .nav-drop .drop-panel a{display:block;width:100%;padding:10px 0;text-align:left}
 }
 
 /* v5 fix — plan footers must not inherit the site footer background; "You do:" stays small sans. */
