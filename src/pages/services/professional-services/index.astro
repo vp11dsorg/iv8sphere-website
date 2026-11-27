@@ -1,0 +1,16 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SERVICES } from '../../../data/services';
+import { BASE } from '../../../site';
+const list = SERVICES.filter(s => s.group === 'Professional Services');
+---
+<Base title="Professional Services" description="Cloud, Kubernetes, OpenShift, managed containers, AI, compliance readiness, consultancy, staffing and talent.">
+<section><div class="container">
+<p class="breadcrumb"><a href={`${BASE}/services`}>Services</a> / Professional Services</p>
+<p class="eyebrow">Services · For technical teams</p>
+<h1>Professional Services</h1>
+<p class="lead">Consulting-led work for teams that need cloud, containers and compliance done properly — by specialists, with a clear plan and a clear handover. <strong>In plain English:</strong> the heavy technical work, handled by people who do it every day. <strong>Technically:</strong> cloud landing zones, managed Kubernetes &amp; OpenShift, AI, and compliance readiness — we help you get compliant, we do not certify you.</p>
+<div class="grid3">{list.map(s => <div class="card silo"><h3>{s.title}</h3><p class="plain">{s.tagline}</p><p class="tech">{s.intro}</p><a href={`${BASE}/services/${s.slug}`}>Explore →</a></div>)}</div>
+<div class="note" style="margin-top:28px"><strong>Compliance, stated plainly:</strong> no vendor certifies <em>your</em> HIPAA / PCI DSS / SOC 2. We build the landing zone, close the gaps and prepare the audit evidence so <em>you</em> can pass your audit.</div>
+</div></section>
+</Base>
