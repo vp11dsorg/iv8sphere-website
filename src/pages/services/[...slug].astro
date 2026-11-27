@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SERVICES } from '../../data/services';
+import { BASE } from '../../site';
+export function getStaticPaths() {
+  return SERVICES.map(s => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service } = Astro.props;
+const others = SERVICES.filter(s => s.group === service.group && s.slug !== service.slug);
+const goodFor = {
+  'Website Services': 'Businesses that want a website, store or app their customers love — and that they can edit themselves.',
+  'Managed Hosting': 'Businesses whose site must stay fast, secure and online — without anyone in-house touching a server.',
+  'Professional Services': 'Teams with real infrastructure, compliance or staffing needs — who want specialists, not a generalist agency.',
+}[service.group] || 'Businesses that need this done properly, by one accountable team.';
+---
+<Base title={service.title} description={service.intro}>
+<section><div class="container">
+<p class="breadcrumb"><a href={`${BASE}/services`}>Services</a> / <a href={`${BASE}${service.parent}`}>{service.group}</a> / {service.title}</p>
+<p class="eyebrow">{service.group}</p>
+<h1>{service.title}</h1>
+<p style="font-size:21px;max-width:720px;color:var(--ink);font-weight:600">{service.tagline}</p>
+<div class="duo" style="margin:24px 0 32px">
+<div class="plain-box"><h4>In plain English</h4><p style="margin:0">{service.intro}</p></div>
+<div class="tech-box"><h4>Good for</h4><p style="margin:0">{goodFor}</p></div>
+</div>
+<h2>What's included</h2>
+<ul class="check">{service.deliverables.map(d => <li><b>{d.split('—')[0].split(',')[0]}</b>{d.includes('—') ? ' — ' + d.split('—').slice(1).join('—') : ''}</li>)}</ul>
+<h2 style="margin-top:40px">How it works</h2>
+<div class="steps" style="grid-template-columns:repeat(4,1fr)">
+<div class="step"><b>01</b><h3>Discover</h3><p>One call and a short brief. We learn your business and goals.</p></div>
+<div class="step"><b>02</b><h3>Design</h3><p>You see it on desktop and phone before anything is built.</p></div>
+<div class="step"><b>03</b><h3>Build</h3><p>Fast, tested, launched — SEO, speed and accessibility built in.</p></div>
+<div class="step"><b>04</b><h3>Care</h3><p>Hosting, updates and small changes, every month.</p></div>
+</div>
+<div class="note" style="margin-top:32px"><strong>What it costs:</strong> every project is quoted. Tell us your budget in the form and we'll tell you what fits — in writing, before you commit to anything. No fixed price list, no hidden fees.</div>
+<h2 style="margin-top:40px">More in {service.group}</h2>
+<div class="grid3">{others.map(o => <div class="card"><h3>{o.title}</h3><p>{o.tagline}</p><a href={`${BASE}/services/${o.slug}`}>Explore →</a></div>)}</div>
+<p style="margin-top:32px"><a class="btn" href={`${BASE}/contact?service=${service.slug}`}>Start a Project →</a></p>
+</div></section>
+</Base>
