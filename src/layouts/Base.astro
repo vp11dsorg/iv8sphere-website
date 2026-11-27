@@ -1,9 +1,14 @@
 ---
 import '../styles/global.css';
-import { BRAND_NAME, BRAND_TAGLINE, NAV, LOGO, BASE } from '../site';
-const { title, description } = Astro.props;
-const pageTitle = title ? `${title} | ${BRAND_NAME}` : `${BRAND_NAME} — Web Design, Hosting & Cloud, Canada`;
-const desc = description || `${BRAND_NAME} is a team of 10–20 designers in Canada who design, build and run websites, stores and apps — fast, mobile-first, and without lock-in.`;
+import { BRAND_NAME, BRAND_TAGLINE, NAV, LOGO, FAVICON, OG_IMAGE, REPO_URL, BASE, SITE_URL, seoTitle as seoTitleFn } from '../site';
+const { title, description, seoTitle } = Astro.props;
+// Titles: 50–60 chars. Pages pass a short title; we build the full one here.
+const pageTitle = seoTitle || (title ? seoTitleFn(title) : `${BRAND_NAME} — Web Design, Managed Hosting & Cloud, Canada`);
+const desc = description || `${BRAND_NAME} is a team of 10–20 specialists in Canada who design, build and run websites, stores and apps — fast, mobile-first, and without lock-in.`;
+const url = new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', SITE_URL).toString();
+const ogImg = new URL(OG_IMAGE, SITE_URL).toString();
+const shareUrl = encodeURIComponent(url);
+const shareText = encodeURIComponent(pageTitle);
 ---
 <!doctype html>
 <html lang="en">
@@ -12,16 +17,29 @@ const desc = description || `${BRAND_NAME} is a team of 10–20 designers in Can
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{pageTitle}</title>
 <meta name="description" content={desc} />
-<link rel="icon" href={LOGO} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={url} />
+<link rel="icon" type="image/png" href={FAVICON} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={BRAND_NAME} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={desc} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={ogImg} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={desc} />
+<meta name="twitter:image" content={ogImg} />
 </head>
 <body>
 <div class="announce">Your technology, designed, built and run by one team. <a href={`${BASE}/contact`}>Book a strategy call →</a></div>
 <header class="site"><div class="container nav">
-<a class="brand" href={BASE + '/'} aria-label={`${BRAND_NAME} home`}><img class="logo" src={LOGO} alt={`${BRAND_NAME} logo`} width="42" height="42" /><span>{BRAND_NAME}</span></a>
+<a class="brand" href={BASE + '/'} aria-label={`${BRAND_NAME} home`}><img class="logo" src={LOGO} alt={`${BRAND_NAME} logo`} width="120" height="36" /></a>
 <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav nav').classList.toggle('open')">☰</button>
 <nav>{NAV.map(i => <a href={BASE + i.href}>{i.label}</a>)}</nav>
-
-<a class="btn sm" href={`${BASE}/contact`}>Book a strategy call</a>
+<a class="btn sm cta-header" href={`${BASE}/contact`}>Book a strategy call</a>
 </div></header>
 <main>
 <slot />
@@ -29,11 +47,19 @@ const desc = description || `${BRAND_NAME} is a team of 10–20 designers in Can
 <section style="padding-top:0"><div class="container"><div class="final">
 <h2>Tell us about your project.</h2>
 <p>One short form. A real reply within 1 business day — and a free first step: tell us your goal, and we'll show you what fits before you commit to anything.</p>
-<div class="steps-mini"><span>1 · Tell us your goal</span><span>2 · We show you what fits</span><span>3 · You decide — no pressure</span></div>
+<div class="steps-mini"><span>1 · Tell us your goal</span><span>2 · We scope it in writing</span><span>3 · You decide — no pressure</span></div>
 <a class="btn light" href={`${BASE}/contact`}>Book a strategy call →</a>
 </div></div></section>
 <footer><div class="container foot">
-<div><a class="brand" href={BASE + '/'}><span>{BRAND_NAME}</span></a><p style="color:#AEBFD6;margin-top:12px">{BRAND_TAGLINE}<br/>Based in Canada. Working worldwide.<br/>Web design, hosting &amp; cloud — one team, start to finish.</p></div>
+<div><a class="brand" href={BASE + '/'}><span>{BRAND_NAME}</span></a><p style="color:#AEBFD6;margin-top:12px">{BRAND_TAGLINE}<br/>Based in Canada. Working worldwide.<br/>Web design, hosting &amp; cloud — one team, start to finish.</p>
+<div class="socials" aria-label="Share this page">
+<a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`} target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="Share on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+<a href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`} target="_blank" rel="noopener" aria-label="Share on X" title="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+<a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" rel="noopener" aria-label="Share on Facebook" title="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+<a href={REPO_URL} target="_blank" rel="noopener" aria-label="Website code on GitHub" title="Website code on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.23v3.3c0 .32.22.7.83.58A12 12 0 0 0 12 .3z"/></svg></a>
+</div>
+<p style="color:#7E93AD;font-size:13px;margin-top:12px">Share this page. We have no social profiles yet — these buttons share the page, they do not link to profiles that do not exist.</p>
+</div>
 <div><h4>Services</h4><a href={`${BASE}/services/website-services`}>Website Services</a><a href={`${BASE}/services/professional-services`}>Professional Services</a><a href={`${BASE}/services/managed-hosting`}>Managed Hosting</a><a href={`${BASE}/services`}>All services</a></div>
 <div><h4>Company</h4><a href={`${BASE}/about`}>About</a><a href={`${BASE}/work`}>Work</a><a href={`${BASE}/process`}>Process</a><a href={`${BASE}/whitepapers`}>Whitepapers</a><a href={`${BASE}/contact`}>Contact</a></div>
 <div><h4>What we do, in one line</h4><p style="color:#AEBFD6">We design, build and run websites, stores and apps — so your business gets more enquiries and sales, without you touching any tech.</p><p style="margin-top:16px">© 2026 {BRAND_NAME}. Canada.</p></div>
