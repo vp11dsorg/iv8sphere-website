@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { BASE } from '../site';
+---
+<Base title="Page not found" description="This page does not exist on iv8Sphere. Go back to the home page or contact us.">
+<section><div class="container">
+<p class="eyebrow">404</p>
+<h1>This page <em>does not exist.</em></h1>
+<p class="lead">It may have moved, or the link may be wrong. The site is still here.</p>
+<p><a class="btn" href={`${BASE}/`}>Back to home →</a> <a class="btn ghost" href={`${BASE}/services`}>See all services</a> <a class="btn ghost" href={`${BASE}/contact`}>Contact us</a></p>
+</div></section>
+</Base>
